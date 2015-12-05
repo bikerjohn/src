@@ -1,0 +1,12 @@
+<suite name="first_user_experience" >
+	<test name="Login_Page_Testing" >
+		<classes> 
+			<class name="test_cases.TestPilrLogin" />
+		</classes>
+	</test>
+	<test name="New_User_Registration" >
+		<classes> 
+			<class name="test_cases.TestNewUserRegistration" />
+		</classes>
+	</test>
+</suite>
