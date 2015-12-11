@@ -1,12 +1,6 @@
 package test_cases;
 
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterTest;
 import page_objects.PilrHomePage;
@@ -15,9 +9,7 @@ import page_objects.Pilr_Navbar;
 import page_objects.Pilr_RegisterPage;
 import page_objects.Pilr_ForgotPwd;
 
-public class TestNewUserRegistration {
-	
-	WebDriver driver;
+public class TestNewUserRegistration extends AbstractTestCase {
 	 
     PilrLogin objLogin;
     PilrHomePage objHomePage;
@@ -25,15 +17,6 @@ public class TestNewUserRegistration {
     Pilr_RegisterPage objRegPage;
     Pilr_ForgotPwd pwdResetPage;
 
-	@BeforeTest
-	 
-    public void setup(){
- 
-        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.get("https://qa.pilrhealth.com/");
- 
-    }
  
     @Test(priority=0)
      
@@ -46,6 +29,7 @@ public class TestNewUserRegistration {
     	//Verify login page title
     	String loginPageTitle = objLogin.getPageSource();
     	Assert.assertTrue(loginPageTitle.toLowerCase().contains("sign in"));
+    	System.out.println("[Test Case]Login Page Verified");
  
     	// select Register option
     	objLogin.registerAsNewUser();
@@ -54,6 +38,7 @@ public class TestNewUserRegistration {
     	objRegPage = new Pilr_RegisterPage(driver);
     	Assert.assertTrue(objRegPage.getRegisterPageWelcome().toLowerCase().contains("new "
     			+ "user registration"));
+    	System.out.println("[Test Case]Registration Page Verified");
     	
     	//complete registration form
     	objRegPage.registerNewuser("eaglemanjjs@hotmail.com", "bikerjjs1", "John", 
@@ -64,11 +49,4 @@ public class TestNewUserRegistration {
     
     }
    
-    @AfterTest
-
-    public void tearDown() throws Exception {
-    	driver.quit();
-      
-      
-    }
 }

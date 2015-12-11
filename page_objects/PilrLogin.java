@@ -60,7 +60,8 @@ public class PilrLogin {
 	    	this.setPassword(strPassword);
 	 
 	       //Click Login button
-	    	this.clickLogin();        
+	    	this.clickLogin();   
+	    	System.out.println("[Page Object]Login to Pilr");
 	    }
 	    
 	    public void FailedloginToPilr(String strUserName, String strPassword) {

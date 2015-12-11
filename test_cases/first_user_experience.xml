@@ -1,4 +1,4 @@
-<suite name="first_user_experience" >
+<suite name="first_user_experience" verbose="1" >
 	<test name="Login_Page_Testing" >
 		<classes> 
 			<class name="test_cases.TestPilrLogin" />
@@ -7,6 +7,16 @@
 	<test name="New_User_Registration" >
 		<classes> 
 			<class name="test_cases.TestNewUserRegistration" />
+		</classes>
+	</test>
+	<test name="PiLR_Navigation" >
+		<classes> 
+			<class name="test_cases.TestPilrSelectProject" />
+		</classes>
+	</test>
+	<test name="PiLR_Coordinate_Page_Navigation" >
+		<classes> 
+			<class name="test_cases.Test_Coordinate_Page" />
 		</classes>
 	</test>
 </suite>

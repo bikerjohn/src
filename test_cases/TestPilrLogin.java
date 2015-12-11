@@ -1,12 +1,9 @@
 package test_cases;
 
-import java.util.concurrent.TimeUnit;
 import org.junit.*;
 import static org.junit.Assert.*;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterTest;
 import page_objects.PilrHomePage;
@@ -15,26 +12,12 @@ import page_objects.Pilr_Navbar;
 import page_objects.Pilr_RegisterPage;
 import page_objects.Pilr_ForgotPwd;
 
-public class TestPilrLogin {
-	WebDriver driver;
-	 
-    PilrLogin objLogin;
+public class TestPilrLogin extends AbstractTestCase {
+	PilrLogin objLogin;
     PilrHomePage objHomePage;
     Pilr_Navbar navbar;
     Pilr_RegisterPage objRegPage;
     Pilr_ForgotPwd pwdResetPage;
-    
-
-    @BeforeTest
- 
-    public void setup(){
- 
-        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.get("https://qa.pilrhealth.com/");
- 
-    }
- 
     @Test(priority=0)
      
     public void test_Home_Page_Appears_Correctly(){
@@ -45,6 +28,7 @@ public class TestPilrLogin {
     	//Verify login page title
     	String loginPageTitle = objLogin.getPageSource();
     	Assert.assertTrue(loginPageTitle.toLowerCase().contains("sign in"));
+    	System.out.println("[Test Case]Login Page Verified");
  
     	//login to application
     	objLogin.loginToPilr("bikerjohn", "$Rtchierans9x1");
@@ -53,7 +37,9 @@ public class TestPilrLogin {
     	objHomePage = new PilrHomePage(driver);
  
     	//Verify home page
-    	Assert.assertTrue(objHomePage.getHomePageWelcome().toLowerCase().contains("welcome back, bikerjohn!"));
+    	Assert.assertTrue(objHomePage.getHomePageWelcome().toLowerCase().contains(
+    			"welcome back, bikerjohn!"));
+    	System.out.println("[Test Case]Home Page Verified");
     	navbar = new Pilr_Navbar(driver);
     	navbar.clickLogout();
     
@@ -63,13 +49,16 @@ public class TestPilrLogin {
     	objLogin = new PilrLogin(driver);
     	String loginPageTitle = objLogin.getPageSource();
     	Assert.assertTrue(loginPageTitle.toLowerCase().contains("sign in"));
+    	System.out.println("[Test Case]Login Page Verified");
      
         //login to application
     	objLogin.FailedloginToPilr("bikerjohn", "badpassword");
      
         // verify that the correct failure text is displayed
     	
-    	Assert.assertTrue(objLogin.getErrorMessage().toLowerCase().contains("sorry, we were not able to find a user with that username and password."));
+    	Assert.assertTrue(objLogin.getErrorMessage().toLowerCase().contains(
+    			"sorry, we were not able to find a user with that username and password."));
+    	System.out.println("[Test Case]Login Message Verified");
     }
     
     @Test
@@ -83,7 +72,9 @@ public class TestPilrLogin {
     	
     	// go the next page
     	objRegPage = new Pilr_RegisterPage(driver);
-    	Assert.assertTrue(objRegPage.getRegisterPageWelcome().toLowerCase().contains("new user registration"));
+    	Assert.assertTrue(objRegPage.getRegisterPageWelcome().toLowerCase().contains(
+    			"new user registration"));
+    	System.out.println("[Test Case]Registration Page Verified");
     	objRegPage.clickLoginReturn();
     }
  
@@ -92,19 +83,16 @@ public class TestPilrLogin {
     	objLogin = new PilrLogin(driver);
     	String loginPageTitle = objLogin.getPageSource();
     	Assert.assertTrue(loginPageTitle.toLowerCase().contains("sign in"));
+    	System.out.println("[Test Case]Login Page Verified");
     	
     	// select password reset option
     	objLogin.pwdReset();
     	
     	// go the next page
     	pwdResetPage = new Pilr_ForgotPwd(driver);
-    	Assert.assertTrue(pwdResetPage.getRegisterPageWelcome().toLowerCase().contains("retrieve password"));
+    	Assert.assertTrue(pwdResetPage.getRegisterPageWelcome().toLowerCase().contains(
+    			"retrieve password"));
+    	System.out.println("[Test Case]Password Reset Page Verified");
     }
-    @AfterTest
 
-    public void tearDown() throws Exception {
-    	driver.quit();
-      
-      
-    }
 }

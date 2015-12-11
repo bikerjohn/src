@@ -44,6 +44,7 @@ public class Pilr_RegisterPage {
  
     	this.clickacceptEULA();   
     	this.clickregisterButton();
+    	System.out.println("[Page Object]Register as New User");
     }
 	
 	//implement the methods associated with filling out the registration form
