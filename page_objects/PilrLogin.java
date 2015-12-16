@@ -16,33 +16,22 @@ public class PilrLogin {
 	     
 	 
 	   public PilrLogin(WebDriver driver){
-	 
-	        this.driver = driver;
-	 
+	        this.driver = driver;	 
 	    }
 	 
 	    //Set user name in textbox
-	 
 	    public void setUserName(String strUserName){
-	 
 	        driver.findElement(PilrName).clear();
-	    	driver.findElement(PilrName).sendKeys(strUserName);
-	 
+	    	driver.findElement(PilrName).sendKeys(strUserName);	 
 	    }
-	 
-	     
 	 
 	    //Set password in password textbox
-	 
 	    public void setPassword(String strPassword){
-	 
 	        driver.findElement(Pilrpassword).clear(); 
-	    	driver.findElement(Pilrpassword).sendKeys(strPassword);
-	 
+	    	driver.findElement(Pilrpassword).sendKeys(strPassword);	 
 	    }
 	 
-	     //Click on login button
-	 
+	     //Click on login button	 
 	    public void clickLogin(){
 	    	driver.findElement(login).click();
 	    }
