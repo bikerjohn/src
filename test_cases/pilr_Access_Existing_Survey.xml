@@ -1,0 +1,18 @@
+<suite name="pilr_Verify_Config_Builder_Page" verbose="2" >
+	<test name="Test_Config_Builder_Page" >
+		<classes> 
+			<class name="test_cases.Test_Survey_Builder" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_Project" />
+					<include name="test_Select_Instrument" />
+					<include name="test_Verify_EMA_App_Page" />
+					<include name="test_Verify_EMA_Builder_Page" />
+					<include name="test_Verify_Config_Builder_Page" />
+					<include name="test_Survey_Editor_Page" />
+					<include name="tearDown" />
+				</methods>
+		</classes>
+	</test>
+</suite>

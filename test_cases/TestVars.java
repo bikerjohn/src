@@ -8,6 +8,14 @@ public final class TestVars {
 	 private String prjct;
 	 private String org;
 	 private String part_code;
+	 private String ema_config;
+	 private String surv_name;
+	 private String surv_desc;
+	 private String sect_name;
+	 private String sect_desc;
+	 private String card_type;
+	 private String card_titl;
+	 private String card_text;
 	
 	//set the default value of the test variables
 	public TestVars(){
@@ -16,6 +24,14 @@ public final class TestVars {
 		prjct="Delete EMA Config Test (OWNER)";
 		org="PiLRHealth Auto QA Test Org (OWNER)";
 		part_code="922";
+		ema_config="Delete Config Test     (00946)";
+		surv_name="Delete Config Test1     (08972)";
+		surv_desc="this is a survey created by an automated qa script";
+		sect_name="weather";
+		sect_desc="this section created by an automated test script";
+		card_type="QUESTION: Yes or no";
+		card_titl="Weather Question";
+		card_text="Is the sun shining today?";
 			
 	    }
 	
@@ -34,5 +50,26 @@ public final class TestVars {
 		}
 		public final String getPartCode(){
 			return part_code;
+		}
+		public final String getEmaConfig(){
+			return ema_config;
+		}
+		public final String getSurveyName(){
+			return surv_name;
+		}
+		public final String getSurveyDescription(){
+			return surv_desc;
+		}
+		public final String getSectionName(){
+			return sect_name;
+		}
+		public final String getSectionDescription(){
+			return sect_desc;
+		}
+		public final String getCardTitle(){
+			return card_titl;
+		}
+		public final String getCardText(){
+			return card_text;
 		}
 }

@@ -2,91 +2,35 @@ package test_cases;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.annotations.AfterTest;
-import page_objects.PilrHomePage;
-import page_objects.PilrLogin;
-import page_objects.Pilr_Navbar;
 import page_objects.Pilr_ParticipantPage;
-import page_objects.Pilr_CoordinatePage;
-import page_objects.Pilr_EMA_App_Home;
 import page_objects.Pilr_GroupPage;
 import page_objects.Pilr_Create_Participant;
 
+//this CLASS extends the AbstractTestCase which contains basic site
+//navigation.  It will not run correctly if you attempt to run it directly 
+//from Eclipse, as there are extra navigation steps in AbstractTestCase
+//which will cause this test to be at the wrong page
+//on the site when it starts.  Instead, this test case should be called from
+//an xml file call Pilr_Verify_Coordinate_Page
+//in there you will see a series of method calls that select only the 
+//navigation methods necessary for this test case.
+//methods are:
+//<include name="SETUP" />
+//<include name="TEST_LOGIN" />
+//<include name="TEST_SELECT_PROJECT" /> CAPS INDICATES ABSTRACTTESTCASE METHOD
+//<include name="test_Verify_NewParticipant_Page" />
+//<include name="test_Verify_ViewGroups_Page" />
+//<include name="test_View_Participant_Detail" />
+//<include name="TEARDOWN" />
+//Last update = 12/14/2015 by jjs
+
 
 public class Test_Coordinate_Page extends AbstractTestCase {
-	PilrLogin objLogin;
-    PilrHomePage objHomePage;
-    Pilr_Navbar navbar;
-    Pilr_CoordinatePage objCoordinatePage;
-    Pilr_EMA_App_Home objEmaApp;
     Pilr_Create_Participant objAddParticipant;
     Pilr_GroupPage objViewGroups;
     Pilr_ParticipantPage objParticipantPage;
-    
-    @Test(priority=0)
-    
-    public void test_Home_Page_Appears_Correctly(){
-    	
-    	//Create Login Page object
-    	objLogin = new PilrLogin(driver);
-    
-    	//Verify login page title
-    	String loginPageTitle = objLogin.getPageSource();
-    	Assert.assertTrue(loginPageTitle.toLowerCase().contains("sign in"));
-
- 
-    	//login to application
-    	objLogin.loginToPilr(objtestvars.getUserName(), 
-    			objtestvars.getPassWrd());
- 
-    	// go the next page
-    	objHomePage = new PilrHomePage(driver);
- 
-    	//Verify home page
-    	Assert.assertTrue(objHomePage.getHomePageWelcome().toLowerCase().contains(
-    			"welcome back, bikerjohn!"));
-    	System.out.println("[Test Case]Home Page Verified");
-    	
-    
-    }
-    @Test
-    public void test_Select_Project() {
-    	objHomePage = new PilrHomePage(driver);
-    	objCoordinatePage = new Pilr_CoordinatePage(driver);
-    	objEmaApp = new Pilr_EMA_App_Home(driver);
-    	Assert.assertTrue(objHomePage.getHomePageWelcome().toLowerCase()
-    			.contains("welcome back, bikerjohn!"));
-    	try {
-    		Thread.sleep(10000); 
-    	}
-    	catch(InterruptedException ex) {
-    		Thread.currentThread().interrupt();
-    	}
-    	
-     
-        //select the Project link based on the testvars project value
-    	objHomePage.selectProject(objtestvars.getProject());
-     
-        // verify that the correct project Coordinate Page is displayed
-    	
-    	Assert.assertTrue(objCoordinatePage.getcoordinatePageWelcome()
-    			.toLowerCase().contains(
-    			"coordinate participants and data"));
-    	System.out.println("[Test Case]Coordinate Page Verified");
-    	
-    	//select the Instrument link 
-    	objCoordinatePage.selectInstrument();
-    	System.out.println("[Test Case]Select Instrument");
-        // verify that the correct project Coordinate Page is displayed
-    	
-    	Assert.assertTrue(objEmaApp.getEMAAppPageWelcome()
-    			.toLowerCase().contains(
-    			"overview of participants"));
-    	driver.navigate().back();
-    	
-    }
-    
-    @Test
+   
+    @Test (groups={"page_test"})
     public void test_Verify_NewParticipant_Page() {
     	
     	//select the Add Participant option
@@ -106,7 +50,7 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	driver.navigate().back();
     }
     
-    @Test
+    @Test (groups={"page_test"})
     public void test_Verify_ViewGroups_Page() {
     	
     	//select the Add Participant option
@@ -125,7 +69,7 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	driver.navigate().back();
     }
     
-    @Test
+    @Test (groups={"page_test"})
     public void test_View_Participant_Detail() {
     	
     	//select the Participant link

@@ -31,14 +31,14 @@ public class TestPilrLogin extends AbstractTestCase {
     	System.out.println("[Test Case]Login Page Verified");
  
     	//login to application
-    	objLogin.loginToPilr("bikerjohn", "$Rtchierans9x1");
+    	objLogin.loginToPilr(objtestvars.getUserName(), objtestvars.getPassWrd());
  
     	// go the next page
     	objHomePage = new PilrHomePage(driver);
  
     	//Verify home page
     	Assert.assertTrue(objHomePage.getHomePageWelcome().toLowerCase().contains(
-    			"welcome back, bikerjohn!"));
+    			"welcome back, " +objtestvars.getUserName()+"!"));
     	System.out.println("[Test Case]Home Page Verified");
     	navbar = new Pilr_Navbar(driver);
     	navbar.clickLogout();
