@@ -3,6 +3,7 @@ package test_cases;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -13,7 +14,9 @@ import page_objects.PilrLogin;
 import page_objects.Pilr_Builder_Page;
 import page_objects.Pilr_Config_Builder;
 import page_objects.Pilr_Navbar;
+import page_objects.Pilr_Org_Page;
 import page_objects.Pilr_ParticipantPage;
+import page_objects.Pilr_Project_Wizard;
 import page_objects.Pilr_Survey_ResponsePage;
 import page_objects.Pilr_CoordinatePage;
 import page_objects.Pilr_EMA_App_Home;
@@ -33,6 +36,8 @@ public class AbstractTestCase {
 	Pilr_Builder_Page objEMABuilderPage;
 	Pilr_Config_Builder objConfigBuilder;
 	Pilr_Survey_ResponsePage objSurvResponsePage;
+	Pilr_Org_Page objOrgPage;
+	Pilr_Project_Wizard objProjWizard;
 
 	public AbstractTestCase() {
 		super();
@@ -41,8 +46,11 @@ public class AbstractTestCase {
 	@BeforeTest
 	public void setup() {
 	
-	    driver = new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", "C:/Program Files/ChromeDriver/chromedriver.exe");
+		driver = new ChromeDriver();
+	    //driver = new FirefoxDriver();
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	    //driver.manage().window().maximize();
 	    driver.get("https://qa.pilrhealth.com/");
 	    objtestvars = new TestVars();
 	    final Logger log = Logger.getLogger(AbstractTestCase.class);
@@ -132,6 +140,24 @@ public class AbstractTestCase {
     	//verify that we landed on the EMA Builder page
     	Assert.assertTrue(objConfigBuilder.getconfigbuilderPageWelcome().toLowerCase()
     			.contains("ema configuration builder"));
+    }
+    @Test
+    public void test_Select_Organization_Page(){
+    	objOrgPage = new Pilr_Org_Page(driver);
+    	//navigate to organization page
+    	objHomePage.selectOrganization(objtestvars.getOrg());
+    	//verify that we landed on the Organization page
+    	Assert.assertTrue((objOrgPage.getOrgPageWelcome().toLowerCase()
+    			.contains("organization settings")));
+    }
+    @Test
+    public void test_Create_Project(){
+    	objProjWizard = new Pilr_Project_Wizard(driver);
+    	//navigate to organization page
+    	objOrgPage.createProject();
+    	//verify that we landed on the Project Wizard Page
+    	Assert.assertTrue((objProjWizard.getProjWizardPageWelcome().toLowerCase()
+    			.contains("new project wizard")));
     }
 	@AfterTest
 

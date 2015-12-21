@@ -16,6 +16,7 @@ public final class TestVars {
 	 private String card_type;
 	 private String card_titl;
 	 private String card_text;
+	 private String new_prjct;
 	
 	//set the default value of the test variables
 	public TestVars(){
@@ -71,5 +72,11 @@ public final class TestVars {
 		}
 		public final String getCardText(){
 			return card_text;
+		}
+		public void setnewProject(String newproject){
+			this.new_prjct=newproject;
+		}
+		public final String getNewProject(){
+			return new_prjct ;
 		}
 }

@@ -1,4 +1,4 @@
-<suite name="pilr_Verify_Coordinate_Page" verbose="1" >
+<suite name="pilr_Verify_Coordinate_Page" verbose="3" >
 	<test name="Test_Verify_Coordinate_Page" >
 		<classes> 
 			<class name="test_cases.Test_Coordinate_Page" />
