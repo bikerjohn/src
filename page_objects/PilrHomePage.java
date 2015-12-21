@@ -1,6 +1,8 @@
 package page_objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.JavascriptExecutor;
 
 import test_cases.TestVars;
 
@@ -8,10 +10,11 @@ public class PilrHomePage {
 	WebDriver driver;
 	 
 		private String project = "DualCohortStudy (OWNER)";
+		private String organization = "test_org";
 		By homePageWelcome = By.cssSelector("i.icon-double-angle-right");
 		By PilrProject = By.linkText(project);
+		By PilrOrg = By.linkText(organization);
 	     
-	 
 	   public PilrHomePage(WebDriver driver){
 	 
 	       this.driver = driver;
@@ -30,6 +33,16 @@ public class PilrHomePage {
 		      System.out.println("[Page Object]Select Project");
 	    	  driver.findElement(PilrProject).click();
 	    	  return new Pilr_CoordinatePage(driver);
-	      }	     
+	      }
+	      //Select an organization to work on
+	      public Pilr_Org_Page selectOrganization(String org){
+	    	  this.organization = org;
+	    	  this.PilrOrg = By.linkText(organization);
+	    	  WebElement PilrOrg = driver.findElement(By.linkText(organization));
+	    	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", PilrOrg);
+	    	  driver.findElement(By.linkText(organization)).click();
+	    	  return new Pilr_Org_Page(driver);
+	      }
+	      
 }
 
