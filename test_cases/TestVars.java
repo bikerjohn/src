@@ -17,6 +17,7 @@ public final class TestVars {
 	 private String card_titl;
 	 private String card_text;
 	 private String new_prjct;
+	 private String instrument_url;
 	
 	//set the default value of the test variables
 	public TestVars(){
@@ -33,6 +34,8 @@ public final class TestVars {
 		card_type="QUESTION: Yes or no";
 		card_titl="Weather Question";
 		card_text="Is the sun shining today?";
+		instrument_url = "https://raw.githubusercontent.com/pilrhealth/definition-files/master/premium/PiLR%20EMA/base-instrument.json";
+		
 			
 	    }
 	
@@ -78,5 +81,8 @@ public final class TestVars {
 		}
 		public final String getNewProject(){
 			return new_prjct ;
+		}
+		public final String getInstrumentURL(){
+			return instrument_url ;
 		}
 }

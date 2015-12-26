@@ -10,6 +10,9 @@
 					<include name="test_Name_New_Project" />
 					<include name="test_Select_New_Project_Config_From_Scratch" />
 					<include name="test_Set_New_Project_Duration" />
+					<include name="test_Select_Project_Settings" />
+					<include name="test_Select_Import_Instrument" />
+					<include name="test_Import_Instrument_JSON_from_Raw" />
 					<include name="tearDown" />
 				</methods>
 		</classes>

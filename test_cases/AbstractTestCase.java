@@ -50,7 +50,7 @@ public class AbstractTestCase {
 		driver = new ChromeDriver();
 	    //driver = new FirefoxDriver();
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	    //driver.manage().window().maximize();
+	    driver.manage().window().maximize();
 	    driver.get("https://qa.pilrhealth.com/");
 	    objtestvars = new TestVars();
 	    final Logger log = Logger.getLogger(AbstractTestCase.class);
@@ -95,6 +95,16 @@ public class AbstractTestCase {
     	catch(InterruptedException ex) {
     		Thread.currentThread().interrupt();
     	}
+    }
+    @Test 
+    public void test_Select_New_Project() {
+    	objHomePage = new PilrHomePage(driver);
+    	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	Assert.assertTrue(objHomePage.getHomePageWelcome().toLowerCase()
+    			.contains("welcome back, bikerjohn!"));
+    	
+        //select the Project link based on the testvars project value
+    	objHomePage.selectProject(objtestvars.getNewProject());
     }
     	
     @Test 

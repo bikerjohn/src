@@ -11,6 +11,7 @@ public class Pilr_CoordinatePage {
 	   By ProjectInstrument = By.cssSelector("span.bigger-110");
 	   By ViewGroups = By.id("navManagementGroupCategories");
 	   By ParticipantDetail = By.id("show" + part_code);
+	   By ProjectSettings = By.cssSelector("i[class='icon-cogs']");
 	   
 	 public Pilr_CoordinatePage(WebDriver driver){
 	 
@@ -52,5 +53,9 @@ public class Pilr_CoordinatePage {
 		  driver.findElement(ParticipantDetail).click();
 		  return new Pilr_ParticipantPage(driver);
 	   }	  
-	    
+	  //select the project settings icon
+	  public Project_Import_Modal selectProjectSettings(){
+		  driver.findElement(ProjectSettings).click();
+		  return new Project_Import_Modal(driver);
+	  }
 }

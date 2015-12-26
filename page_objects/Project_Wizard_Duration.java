@@ -1,5 +1,6 @@
 package page_objects;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 public class Project_Wizard_Duration {
@@ -15,7 +16,11 @@ public class Project_Wizard_Duration {
 	        return    driver.findElement(durationWelcome).getText();
 		}
 		//select Finish and to the project button
-		public void selectFinish(){
-			driver.findElement(finishButton);
+		public Pilr_CoordinatePage selectFinish(){
+			JavascriptExecutor je = (JavascriptExecutor) driver;
+	  	  	je.executeScript("arguments[0].scrollIntoView(true);",
+	  	  	driver.findElement(By.cssSelector("button[id='next']")));
+	  	  	driver.findElement(finishButton).click();
+			return new Pilr_CoordinatePage(driver);
 		}
 }

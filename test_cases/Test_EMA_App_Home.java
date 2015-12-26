@@ -33,6 +33,7 @@ public class Test_EMA_App_Home extends AbstractTestCase {
     @Test
     public void test_Verify_Survey_Response_Page(){
     	objSurvResponsePage = new Pilr_Survey_ResponsePage(driver);
+    	objEMAAppPage = new Pilr_EMA_App_Home(driver);
     	//navigate to survey response page
     	objEMAAppPage.selectSurvResponse();
     	//verify that we landed on survey response page
