@@ -1,0 +1,36 @@
+<suite name="pilr_Create_Project_from_Scratch" verbose="2" >
+	<test name="Test_Create_Project" >
+		<classes> 
+			<class name="test_cases.Test_New_Project_Wizard" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_Organization_Page" />
+					<include name="test_Create_Project" />
+					<include name="test_Name_New_Project" />
+					<include name="test_Select_New_Project_Config_From_Scratch" />
+					<include name="test_Set_New_Project_Duration" />
+					<include name="test_Select_Project_Settings" />
+					<include name="test_Select_Import_Instrument" />
+					<include name="test_Import_Instrument_JSON_from_Raw" />
+					<include name="test_Logout" />
+				</methods>
+				</classes>
+		</test>
+		<test name="Test_Create_Survey" >
+		<classes> 
+				<class name="test_cases.Test_New_Survey_Builder" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_New_Project_Name"/>
+					<include name="test_Select_Instrument" />
+					<include name="test_Verify_EMA_App_Page" />
+					<include name="test_Verify_EMA_Builder_Page" />
+					<include name="test_Select_New_EMA_Config" />
+					<include name="test_Create_New_EMA_Config" />
+					<include name="tearDown" />
+				</methods>
+			</classes>
+	</test>
+</suite>

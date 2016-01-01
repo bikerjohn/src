@@ -1,0 +1,33 @@
+<suite name="pilr_test_navigation" verbose="1" >
+	<test name="Test_Scenario_Login" >
+		<classes> 
+			<class name="test_cases.Test_Coordinate_Page" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_Project" />
+					<include name="test_Verify_NewParticipant_Page" />
+					<include name="test_Verify_ViewGroups_Page" />
+					<include name="test_View_Participant_Detail" />
+					<include name="tearDown" />
+				</methods>
+		</classes>
+		</test>
+				
+	<test name="Test_Pilr_Survey_Builder" >
+		<classes> 
+				<class name="test_cases.Test_Survey_Builder" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_Project" />
+					<include name="test_Select_Instrument" />
+					<include name="test_Verify_EMA_App_Page" />
+					<include name="test_Verify_EMA_Builder_Page" />
+					<include name="test_Verify_Config_Builder_Page" />
+					<include name="test_Survey_Editor_Page" />
+					<include name="tearDown" />
+				</methods>
+		</classes>
+	</test>
+</suite>
