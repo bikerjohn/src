@@ -25,10 +25,12 @@
 					<include name="test_Login" />
 					<include name="test_Select_New_Project_Name"/>
 					<include name="test_Select_Instrument" />
-					<include name="test_Verify_EMA_App_Page" />
-					<include name="test_Verify_EMA_Builder_Page" />
+					<include name="test_Select_EMA_App_Page" />
+					<include name="test_Select_EMA_Builder_Page" />
 					<include name="test_Select_New_EMA_Config" />
 					<include name="test_Create_New_EMA_Config" />
+					<include name="test_Select_Survey_Builder" />
+					<include name="test_Add_New_Survey_Modal" />
 					<include name="tearDown" />
 				</methods>
 			</classes>

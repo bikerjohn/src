@@ -1,0 +1,18 @@
+<suite name="pilr_Create_New_Survey_Existing_Project" verbose="2" >
+	<test name="Test_Create_Survey" >
+		<classes> 
+			<class name="test_cases.Test_New_Survey_Builder" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_Project" />
+					<include name="test_Select_Instrument" />
+					<include name="test_Select_EMA_App_Page" />
+					<include name="test_Select_EMA_Builder_Page" />
+					<include name="test_Select_Config_Builder_Page" />
+					<include name="test_Select_Existing_Survey" />
+					<include name="tearDown" />
+				</methods>
+		</classes>
+	</test>
+</suite>

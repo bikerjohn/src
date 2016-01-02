@@ -5,6 +5,7 @@ import java.lang.management.ManagementFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import page_objects.Add_Survey_Modal;
 import page_objects.Builder_EMAConfig_Page;
 import page_objects.PilrHomePage;
 import page_objects.Pilr_Builder_Page;
@@ -41,7 +42,9 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		Pilr_CoordinatePage objCoordinatePage;
 		Builder_EMAConfig_Page objEMAConfigBuilder;
 		Pilr_Builder_Page objPilrBuilderPage;
+		Add_Survey_Modal objAddSurvey;
 		String new_project_name = "test"+ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
+		String emaTextLink = "test_link";
 //need to add the config builder and survey builder objects
 
 	@Test
@@ -89,6 +92,43 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		objEMAConfigBuilder.createEMAConfig(objtestvars.getNewEMAConfig());
 		Assert.assertTrue(objPilrBuilderPage.getBuilderPageWelcome().toLowerCase()
 				.contains("ema configurations"));
+	}
+	@Test
+	public void test_Select_Survey_Builder(){
+		objPilrBuilderPage = new Pilr_Builder_Page(driver);
+		objConfigBuilder = new Pilr_Config_Builder(driver);
+		objPilrBuilderPage.pickEMAConfig(new_project_name);
+		//verify that we landed on the EMA Builder page
+    	Assert.assertTrue(objConfigBuilder.getconfigbuilderPageWelcome().toLowerCase()
+    			.contains("ema configuration builder"));
+	}
+	@Test
+	public void test_Add_New_Survey_Modal(){
+		objConfigBuilder = new Pilr_Config_Builder(driver);
+		objAddSurvey = new Add_Survey_Modal(driver);
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+		
+		objConfigBuilder.addSurvey();
+		try {
+    		Thread.sleep(5000); 
+    	}
+    	catch(InterruptedException ex) {
+    		Thread.currentThread().interrupt();
+    	}
+		Assert.assertTrue(objAddSurvey.getSurvey_Modal_Welcome().toLowerCase()
+				.contains("add a survey"));
+		objAddSurvey.addSurvey(objtestvars.getNewSurveyName(), objtestvars.getNewSurveyDescription());
+		Assert.assertTrue(objSurveyBuilder.getsurveyBuilderWelcome().toLowerCase()
+				.contains(""));
+	}
+	@Test
+	public void test_Select_Existing_Survey(){
+		objConfigBuilder = new Pilr_Config_Builder(driver);
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+		
+		objConfigBuilder.selectSurvey(objtestvars.getSurveyName());
+		Assert.assertTrue(objSurveyBuilder.getsurveyBuilderWelcome()
+				.contains(objtestvars.getSurveyName()));
 	}
 	
 }

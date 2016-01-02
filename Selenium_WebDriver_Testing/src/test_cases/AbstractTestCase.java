@@ -127,7 +127,7 @@ public class AbstractTestCase {
     	
     }
     @Test
-    public void test_Verify_EMA_App_Page(){
+    public void test_Select_EMA_App_Page(){
     	objEMAAppPage = new Pilr_EMA_App_Home(driver);
     	objSurvResponsePage = new Pilr_Survey_ResponsePage(driver);
     	Assert.assertTrue(objEMAAppPage.getEMAAppPageWelcome()
@@ -135,7 +135,7 @@ public class AbstractTestCase {
     			"overview of participants"));
     }
     @Test
-    public void test_Verify_EMA_Builder_Page(){
+    public void test_Select_EMA_Builder_Page(){
     	objEMABuilderPage = new Pilr_Builder_Page(driver);
     	//navigate to survey response page
     	objEMAAppPage.selectEMABuilder();
@@ -144,7 +144,7 @@ public class AbstractTestCase {
     			.contains("ema configurations"));
     }
     @Test
-    public void test_Verify_Config_Builder_Page(){
+    public void test_Select_Config_Builder_Page(){
     	objConfigBuilder = new Pilr_Config_Builder(driver);
     	//navigate to survey response page
     	objEMABuilderPage.selectEMAConfig(objtestvars.getEmaConfig());

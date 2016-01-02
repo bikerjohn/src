@@ -18,18 +18,20 @@ public final class TestVars {
 	 private String card_titl;
 	 private String card_text;
 	 private String new_prjct;
+	 private String new_survey_name;
+	 private String new_survey_description;
 	 private String instrument_url;
 	
 	//set the default value of the test variables
 	public TestVars(){
 		usrname="bikerjohn";
 		passwrd="$Rtchierans9x1";
-		prjct="Delete EMA Config Test (OWNER)";
+		prjct="test6812";
 		org="PiLRHealth Auto QA Test Org (OWNER)";
 		part_code="922";
-		ema_config="Delete Config Test     (00946)";
+		ema_config="New EMA Config";
 		new_ema_config="New EMA Config";
-		surv_name="Delete Config Test1     (08972)";
+		surv_name="Test Survey";
 		surv_desc="this is a survey created by an automated qa script";
 		sect_name="weather";
 		sect_desc="this section created by an automated test script";
@@ -37,6 +39,8 @@ public final class TestVars {
 		card_titl="Weather Question";
 		card_text="Is the sun shining today?";
 		instrument_url = "https://raw.githubusercontent.com/pilrhealth/definition-files/master/premium/PiLR%20EMA/base-instrument.json";
+		new_survey_name = "Test Survey";
+		new_survey_description = "This is an automatically generated survey";
 		
 			
 	    }
@@ -89,5 +93,11 @@ public final class TestVars {
 		}
 		public final String getNewEMAConfig(){
 			return new_ema_config;
+		}
+		public final String getNewSurveyName(){
+			return new_survey_name;
+		}
+		public final String getNewSurveyDescription(){
+			return new_survey_description;
 		}
 }
