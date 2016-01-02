@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class Pilr_Survey_Builder {
 	WebDriver driver;
 	private String surv_name="Test Survey";
-	By survBuilderWelcome = By.cssSelector("b.green");
+	By survBuilderWelcome = By.cssSelector("b[class='green']");
 	By selectSurvey = By.linkText(surv_name);
 	//need a selector for the trigger editor
 	//need a selector for the App Tabs cards (edit/delete)
@@ -17,8 +17,10 @@ public class Pilr_Survey_Builder {
     public String getsurveyBuilderWelcome(){
         return    driver.findElement(survBuilderWelcome).getText();
     }
-    //Add Survey Method
-    //Name Survey Method
-    //Click Submit Survey Method (return Survey Card Builder object)
+    
+    //Create Section Method
+    public void create_Section(){
+    	
+    }
 }
 

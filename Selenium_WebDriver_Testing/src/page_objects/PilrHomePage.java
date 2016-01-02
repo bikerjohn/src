@@ -14,7 +14,7 @@ public class PilrHomePage {
 		private String project = "DualCohortStudy (OWNER)";
 		private String organization = "test_org";
 		By homePageWelcome = By.cssSelector("i.icon-double-angle-right");
-		By PilrProject = By.linkText(project);
+		By PilrProject = By.partialLinkText(project);
 		By PilrOrg = By.linkText(organization);
 	     
 	   public PilrHomePage(WebDriver driver){
@@ -33,7 +33,7 @@ public class PilrHomePage {
 	    	  this.project = prjct + " (OWNER)";
 		      this.PilrProject = By.linkText(project);
 		      System.out.println("[Page Object]Select Project");
-		      WebElement element = driver.findElement(By.linkText(project));
+		      WebElement element = driver.findElement(By.partialLinkText(project));
 	    	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 	    	  
 	    	  driver.findElement(By.linkText(project)).click();
