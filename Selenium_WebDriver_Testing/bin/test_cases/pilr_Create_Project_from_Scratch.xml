@@ -37,5 +37,22 @@
 					<include name="tearDown" />
 				</methods>
 			</classes>
+		</test>		
+		<test name="Test_Add_Instrument_to_Default_Template" >
+			<classes> 
+				<class name="test_cases.Test_Project_Design_Settings" />
+					<methods>
+						<include name="setup" />
+						<include name="test_Login" />
+						<include name="test_Select_New_Project_Name" />
+						<include name="test_Nav_Project_Settings" />
+						<include name="test_Nav_Project_Design" />
+						<include name="test_Select_Default_Template" />
+						<include name="test_Add_Instrument_to_Template" />
+						<include name="test_Save_Instrument_Selection" />	
+						<include name="test_Set_EMA_Config" />				
+						<include name="tearDown" />
+					</methods>
+			</classes>
 	</test>
 </suite>

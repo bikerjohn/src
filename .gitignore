@@ -45,3 +45,10 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+# ======================
+# sub-directories we don't want managed
+# ======================
+.metadata/
+.recommenders/
+test-output/
+Selenium_Webdriver_Testing\test-output/

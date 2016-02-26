@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Add_Instrument_Modal {
 	WebDriver driver;
-	By addInstrumentWelcome = By.cssSelector("div[class='widget-header']");
+	By addInstrumentWelcome = By.cssSelector("h4");
 	By selectInstrument = By.cssSelector("div[id='select2-drop-mask']");
 	By addButton = By.cssSelector("button[id='save']");
 	

@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class EMA_Config_Modal {
 	WebDriver driver;
-	By emaModalWelcome = By.cssSelector("div[class='widget-header']");
+	By emaModalWelcome = By.cssSelector("h4");
 	By radioButton = By.cssSelector("input[name='value']");
 	By saveButton = By.cssSelector("button[id='save']");
 	

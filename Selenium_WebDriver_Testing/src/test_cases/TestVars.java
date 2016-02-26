@@ -29,7 +29,7 @@ public final class TestVars {
 	public TestVars(){
 		usrname="bikerjohn";
 		passwrd="$Rtchierans9x1";
-		prjct="test8460";
+		prjct="test12272";
 		org="PiLRHealth Auto QA Test Org (OWNER)";
 		part_code="922";
 		ema_config="New EMA Config";
