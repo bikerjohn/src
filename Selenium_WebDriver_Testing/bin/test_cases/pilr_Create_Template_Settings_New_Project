@@ -8,7 +8,7 @@
 					<include name="test_Select_Project" />
 					<include name="test_Nav_Project_Settings" />
 					<include name="test_Nav_Project_Design" />
-					
+					<include name="test_Select_Default_Template" />
 					<include name="tearDown" />
 				</methods>
 		</classes>

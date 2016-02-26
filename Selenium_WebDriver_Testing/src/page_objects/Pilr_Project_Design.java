@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Pilr_Project_Design {
 	WebDriver driver;
-	By projectDesignWelcome = By.cssSelector("a[class='icon-double-angle-right']");
+	By projectDesignWelcome = By.cssSelector("i[class='icon-double-angle-right']");
 	By defaultTemplate = By.cssSelector("a[id='showDefaultTemplate']");
 	
 	public Pilr_Project_Design(WebDriver driver){
