@@ -21,12 +21,15 @@ public final class TestVars {
 	 private String new_survey_name;
 	 private String new_survey_description;
 	 private String instrument_url;
+	 private String existing_org;
+	 private String dv_start_date;
+	 private String dv_end_date;
 	
 	//set the default value of the test variables
 	public TestVars(){
 		usrname="bikerjohn";
 		passwrd="$Rtchierans9x1";
-		prjct="test6812";
+		prjct="test8460";
 		org="PiLRHealth Auto QA Test Org (OWNER)";
 		part_code="922";
 		ema_config="New EMA Config";
@@ -41,6 +44,10 @@ public final class TestVars {
 		instrument_url = "https://raw.githubusercontent.com/pilrhealth/definition-files/master/premium/PiLR%20EMA/base-instrument.json";
 		new_survey_name = "Test Survey";
 		new_survey_description = "This is an automatically generated survey";
+		existing_org = "customer_ema_examples";
+		dv_start_date = "10/16/2015";
+		dv_end_date = "02/10/2016";
+				
 		
 			
 	    }
@@ -99,5 +106,14 @@ public final class TestVars {
 		}
 		public final String getNewSurveyDescription(){
 			return new_survey_description;
+		}
+		public final String getExistingOrg(){
+			return existing_org;
+		}
+		public final String get_dv_Start_Date(){
+			return dv_start_date;
+		}
+		public final String get_dv_End_Date(){
+			return dv_end_date;
 		}
 }

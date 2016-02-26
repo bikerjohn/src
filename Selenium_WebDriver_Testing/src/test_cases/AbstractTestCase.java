@@ -16,6 +16,8 @@ import page_objects.Pilr_Config_Builder;
 import page_objects.Pilr_Navbar;
 import page_objects.Pilr_Org_Page;
 import page_objects.Pilr_ParticipantPage;
+import page_objects.Pilr_Project_Design;
+import page_objects.Pilr_Project_Settings_Page;
 import page_objects.Pilr_Project_Wizard;
 import page_objects.Pilr_Survey_ResponsePage;
 import page_objects.Pilr_CoordinatePage;
@@ -38,6 +40,8 @@ public class AbstractTestCase {
 	Pilr_Survey_ResponsePage objSurvResponsePage;
 	Pilr_Org_Page objOrgPage;
 	Pilr_Project_Wizard objProjWizard;
+	Pilr_Project_Settings_Page objProjectSettings;
+	Pilr_Project_Design objProjectDesign;
 
 	public AbstractTestCase() {
 		super();
@@ -80,6 +84,7 @@ public class AbstractTestCase {
     			"welcome back, bikerjohn!"));
     	System.out.println("[Test Case]Home Page Verified");
     }
+    
     @Test 
     public void test_Select_Project() {
     	objHomePage = new PilrHomePage(driver);
@@ -87,6 +92,8 @@ public class AbstractTestCase {
     	Assert.assertTrue(objHomePage.getHomePageWelcome().toLowerCase()
     			.contains("welcome back, bikerjohn!"));
     	
+    	//expand the org group for this project
+    	objHomePage.expandOrg(objtestvars.getExistingOrg());
         //select the Project link based on the testvars project value
     	objHomePage.selectProject(objtestvars.getProject());
     	try {
@@ -135,6 +142,17 @@ public class AbstractTestCase {
     			"overview of participants"));
     }
     @Test
+    public void test_Select_Survey_Response_Page(){
+    	objSurvResponsePage = new Pilr_Survey_ResponsePage(driver);
+    	objEMAAppPage = new Pilr_EMA_App_Home(driver);
+    	//navigate to survey response page
+    	objEMAAppPage.selectSurvResponse();
+    	//verify that we landed on survey response page
+    	Assert.assertTrue(objSurvResponsePage.getSurvey_ResponsePageWelcome().toLowerCase()
+    			.contains(" view participant survey responses"));
+    	objCoordinatePage.browseData();	
+    }
+    @Test
     public void test_Select_EMA_Builder_Page(){
     	objEMABuilderPage = new Pilr_Builder_Page(driver);
     	//navigate to survey response page
@@ -170,6 +188,29 @@ public class AbstractTestCase {
     	Assert.assertTrue((objProjWizard.getProjWizardPageWelcome().toLowerCase()
     			.contains("new project wizard")));
     }
+    @Test
+    //navigate to the Project Design Page
+    public void test_Nav_Project_Design(){
+    	objProjectSettings = new Pilr_Project_Settings_Page(driver);
+    	objProjectDesign = new Pilr_Project_Design(driver);
+    	//nav to project Design
+    	objProjectSettings.nav_Project_Design();
+    	//verify we landed on the Project Settings Page
+    	Assert.assertTrue(objProjectDesign.getProjectDesignWelcome().toLowerCase()
+    			.contains("setup and edit the design of the project (e.i. who uses what, when?)"));
+    }
+    @Test
+    //navigate to the Project Settings Page
+    public void test_Nav_Project_Settings(){
+    	navbar = new Pilr_Navbar(driver);
+    	objProjectSettings = new Pilr_Project_Settings_Page(driver);
+    	//click the gear icons to go to the Project Settings Page
+    	navbar.click_Project_Settings_Icon();
+    	//verify we landed on the Project Settings Page
+    	Assert.assertTrue(objProjectSettings.getprojectSettingsWelcome().toLowerCase()
+    			.contains("add, edit, or remove the components used on this project."));   	
+    }
+    
     @Test
     public void test_Logout(){
     	navbar = new Pilr_Navbar(driver);

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-pilr_Create_New_Survey_Existing_Project">
+              <span class="suite-name border-failed">pilr_Create_New_Survey_Existing_Project</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-pilr_Create_New_Survey_Existing_Project">
+                    <span>C:\srv\mei\src\Selenium_WebDriver_Testing\src\test_cases\pilr_Create_New_Survey_Existing_Project.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-pilr_Create_New_Survey_Existing_Project">
+                    <span class="test-stats">2 tests</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-pilr_Create_New_Survey_Existing_Project">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-pilr_Create_New_Survey_Existing_Project">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-pilr_Create_New_Survey_Existing_Project">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-pilr_Create_New_Survey_Existing_Project">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-pilr_Create_New_Survey_Existing_Project">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">10 methods, 1 failed,   9 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-pilr_Create_New_Survey_Existing_Project" class="hide-methods failed suite-pilr_Create_New_Survey_Existing_Project"> (hide)</a> <!-- hide-methods failed suite-pilr_Create_New_Survey_Existing_Project -->
+                      <a href="#" panel-name="suite-pilr_Create_New_Survey_Existing_Project" class="show-methods failed suite-pilr_Create_New_Survey_Existing_Project"> (show)</a> <!-- show-methods failed suite-pilr_Create_New_Survey_Existing_Project -->
+                    </span>
+                    <div class="method-list-content failed suite-pilr_Create_New_Survey_Existing_Project">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-pilr_Create_New_Survey_Existing_Project" title="test_cases.Test_New_Survey_Builder" hash-for-method="test_Add_Card">test_Add_Card</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-pilr_Create_New_Survey_Existing_Project -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-pilr_Create_New_Survey_Existing_Project" class="hide-methods passed suite-pilr_Create_New_Survey_Existing_Project"> (hide)</a> <!-- hide-methods passed suite-pilr_Create_New_Survey_Existing_Project -->
+                      <a href="#" panel-name="suite-pilr_Create_New_Survey_Existing_Project" class="show-methods passed suite-pilr_Create_New_Survey_Existing_Project"> (show)</a> <!-- show-methods passed suite-pilr_Create_New_Survey_Existing_Project -->
+                    </span>
+                    <div class="method-list-content passed suite-pilr_Create_New_Survey_Existing_Project">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-pilr_Create_New_Survey_Existing_Project" title="test_cases.Test_New_Survey_Builder" hash-for-method="test_Add_New_Section">test_Add_New_Section</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-pilr_Create_New_Survey_Existing_Project" title="test_cases.Test_New_Survey_Builder" hash-for-method="test_Login">test_Login</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-pilr_Create_New_Survey_Existing_Project" title="test_cases.Test_New_Survey_Builder" hash-for-method="test_Select_Card_Type">test_Select_Card_Type</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-pilr_Create_New_Survey_Existing_Project" title="test_cases.Test_New_Survey_Builder" hash-for-method="test_Select_Config_Builder_Page">test_Select_Config_Builder_Page</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-pilr_Create_New_Survey_Existing_Project" title="test_cases.Test_New_Survey_Builder" hash-for-method="test_Select_EMA_App_Page">test_Select_EMA_App_Page</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-pilr_Create_New_Survey_Existing_Project" title="test_cases.Test_New_Survey_Builder" hash-for-method="test_Select_EMA_Builder_Page">test_Select_EMA_Builder_Page</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-pilr_Create_New_Survey_Existing_Project" title="test_cases.Test_New_Survey_Builder" hash-for-method="test_Select_Existing_Survey">test_Select_Existing_Survey</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-pilr_Create_New_Survey_Existing_Project" title="test_cases.Test_New_Survey_Builder" hash-for-method="test_Select_Instrument">test_Select_Instrument</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-pilr_Create_New_Survey_Existing_Project" title="test_cases.Test_New_Survey_Builder" hash-for-method="test_Select_Project">test_Select_Project</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-pilr_Create_New_Survey_Existing_Project -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-pilr_Create_New_Survey_Existing_Project" class="panel pilr_Create_New_Survey_Existing_Project">
+          <div class="suite-pilr_Create_New_Survey_Existing_Project-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">test_cases.Test_New_Survey_Builder</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="test_Add_Card">
+                  </a> <!-- test_Add_Card -->
+                  <span class="method-name">test_Add_Card</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at test_cases.Test_New_Survey_Builder.test_Add_Card(Test_New_Survey_Builder.java:184)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:645)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:822)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1130)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:113)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:206)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:177)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-pilr_Create_New_Survey_Existing_Project-class-failed -->
+          <div class="suite-pilr_Create_New_Survey_Existing_Project-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">test_cases.Test_New_Survey_Builder</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="test_Add_New_Section">
+                  </a> <!-- test_Add_New_Section -->
+                  <span class="method-name">test_Add_New_Section</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test_Login">
+                  </a> <!-- test_Login -->
+                  <span class="method-name">test_Login</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test_Select_Card_Type">
+                  </a> <!-- test_Select_Card_Type -->
+                  <span class="method-name">test_Select_Card_Type</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test_Select_Config_Builder_Page">
+                  </a> <!-- test_Select_Config_Builder_Page -->
+                  <span class="method-name">test_Select_Config_Builder_Page</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test_Select_EMA_App_Page">
+                  </a> <!-- test_Select_EMA_App_Page -->
+                  <span class="method-name">test_Select_EMA_App_Page</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test_Select_EMA_Builder_Page">
+                  </a> <!-- test_Select_EMA_Builder_Page -->
+                  <span class="method-name">test_Select_EMA_Builder_Page</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test_Select_Existing_Survey">
+                  </a> <!-- test_Select_Existing_Survey -->
+                  <span class="method-name">test_Select_Existing_Survey</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test_Select_Instrument">
+                  </a> <!-- test_Select_Instrument -->
+                  <span class="method-name">test_Select_Instrument</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test_Select_Project">
+                  </a> <!-- test_Select_Project -->
+                  <span class="method-name">test_Select_Project</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-pilr_Create_New_Survey_Existing_Project-class-passed -->
+        </div> <!-- panel pilr_Create_New_Survey_Existing_Project -->
+        <div panel-name="test-xml-pilr_Create_New_Survey_Existing_Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\srv\mei\src\Selenium_WebDriver_Testing\src\test_cases\pilr_Create_New_Survey_Existing_Project.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite verbose=&quot;2&quot; name=&quot;pilr_Create_New_Survey_Existing_Project&quot;&gt;
+  &lt;test name=&quot;Test_Create_Survey&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;test_cases.Test_New_Survey_Builder&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;setup&quot;/&gt;
+          &lt;include name=&quot;test_Login&quot;/&gt;
+          &lt;include name=&quot;test_Select_Project&quot;/&gt;
+          &lt;include name=&quot;test_Select_Instrument&quot;/&gt;
+          &lt;include name=&quot;test_Select_EMA_App_Page&quot;/&gt;
+          &lt;include name=&quot;test_Select_EMA_Builder_Page&quot;/&gt;
+          &lt;include name=&quot;test_Select_Config_Builder_Page&quot;/&gt;
+          &lt;include name=&quot;test_Select_Existing_Survey&quot;/&gt;
+          &lt;include name=&quot;test_Add_New_Section&quot;/&gt;
+          &lt;include name=&quot;test_Select_Card_Type&quot;/&gt;
+          &lt;include name=&quot;test_Add_Card&quot;/&gt;
+          &lt;include name=&quot;tearDown&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- test_cases.Test_New_Survey_Builder --&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test_Create_Survey --&gt;
+  &lt;test name=&quot;Test_Create_Survey(failed)&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;test_cases.Test_New_Survey_Builder&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;test_Add_Card&quot;/&gt;
+          &lt;include name=&quot;setup&quot;/&gt;
+          &lt;include name=&quot;tearDown&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- test_cases.Test_New_Survey_Builder --&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test_Create_Survey(failed) --&gt;
+&lt;/suite&gt; &lt;!-- pilr_Create_New_Survey_Existing_Project --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-pilr_Create_New_Survey_Existing_Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for pilr_Create_New_Survey_Existing_Project</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Test_Create_Survey (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test_Create_Survey(failed) (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-pilr_Create_New_Survey_Existing_Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for pilr_Create_New_Survey_Existing_Project</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-pilr_Create_New_Survey_Existing_Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for pilr_Create_New_Survey_Existing_Project</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_pilr_Create_New_Survey_Existing_Project');
+function tableData_pilr_Create_New_Survey_Existing_Project() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(10);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'test_Select_Card_Type')
+data.setCell(0, 2, 'test_cases.Test_New_Survey_Builder')
+data.setCell(0, 3, 45562);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'test_Select_Project')
+data.setCell(1, 2, 'test_cases.Test_New_Survey_Builder')
+data.setCell(1, 3, 27700);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'test_Add_Card')
+data.setCell(2, 2, 'test_cases.Test_New_Survey_Builder')
+data.setCell(2, 3, 22204);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'test_Add_New_Section')
+data.setCell(3, 2, 'test_cases.Test_New_Survey_Builder')
+data.setCell(3, 3, 6175);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'test_Login')
+data.setCell(4, 2, 'test_cases.Test_New_Survey_Builder')
+data.setCell(4, 3, 1725);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'test_Select_Config_Builder_Page')
+data.setCell(5, 2, 'test_cases.Test_New_Survey_Builder')
+data.setCell(5, 3, 822);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'test_Select_Existing_Survey')
+data.setCell(6, 2, 'test_cases.Test_New_Survey_Builder')
+data.setCell(6, 3, 735);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'test_Select_Instrument')
+data.setCell(7, 2, 'test_cases.Test_New_Survey_Builder')
+data.setCell(7, 3, 690);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'test_Select_EMA_Builder_Page')
+data.setCell(8, 2, 'test_cases.Test_New_Survey_Builder')
+data.setCell(8, 3, 636);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'test_Select_EMA_App_Page')
+data.setCell(9, 2, 'test_cases.Test_New_Survey_Builder')
+data.setCell(9, 3, 26);
+window.suiteTableData['pilr_Create_New_Survey_Existing_Project']= { tableData: data, tableDiv: 'times-div-pilr_Create_New_Survey_Existing_Project'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <div id="times-div-pilr_Create_New_Survey_Existing_Project">
+              </div> <!-- times-div-pilr_Create_New_Survey_Existing_Project -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-pilr_Create_New_Survey_Existing_Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for pilr_Create_New_Survey_Existing_Project</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-pilr_Create_New_Survey_Existing_Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">11 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">test_cases.Test_New_Survey_Builder</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">test_Survey_Editor_Page</span>
+                <br/>
+                <span class="ignored-method-name">test_Select_Organization_Page</span>
+                <br/>
+                <span class="ignored-method-name">test_Select_New_EMA_Config</span>
+                <br/>
+                <span class="ignored-method-name">test_Create_Project</span>
+                <br/>
+                <span class="ignored-method-name">test_Select_Survey_Builder</span>
+                <br/>
+                <span class="ignored-method-name">test_Create_New_EMA_Config</span>
+                <br/>
+                <span class="ignored-method-name">test_Select_New_Project</span>
+                <br/>
+                <span class="ignored-method-name">test_Select_New_Project_Name</span>
+                <br/>
+                <span class="ignored-method-name">test_Add_New_Survey_Modal</span>
+                <br/>
+                <span class="ignored-method-name">test_Logout</span>
+                <br/>
+                <span class="ignored-method-name">test_Select_Survey_Response_Page</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-pilr_Create_New_Survey_Existing_Project" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">test_cases.Test_New_Survey_Builder</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setup</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">test_Login</span>
+                <span class="method-start">5246 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test_Select_Project</span>
+                <span class="method-start">6973 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test_Select_Instrument</span>
+                <span class="method-start">34673 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test_Select_EMA_App_Page</span>
+                <span class="method-start">35364 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test_Select_EMA_Builder_Page</span>
+                <span class="method-start">35392 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test_Select_Config_Builder_Page</span>
+                <span class="method-start">36028 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test_Select_Existing_Survey</span>
+                <span class="method-start">36854 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test_Add_New_Section</span>
+                <span class="method-start">37590 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test_Select_Card_Type</span>
+                <span class="method-start">43765 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">test_Add_Card</span>
+                <span class="method-start">89343 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">111547 ms</span>
+              </div> <!-- configuration-test after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

@@ -12,6 +12,7 @@ public class Pilr_CoordinatePage {
 	   By ViewGroups = By.id("navManagementGroupCategories");
 	   By ParticipantDetail = By.id("show" + part_code);
 	   By ProjectSettings = By.cssSelector("i[class='icon-cogs']");
+	   By BrowseData = By.cssSelector("a[id='navDataBrowse']");
 	   
 	 public Pilr_CoordinatePage(WebDriver driver){
 	 
@@ -29,6 +30,12 @@ public class Pilr_CoordinatePage {
 	    	  System.out.println("[Page Object]Select Instrument");
 	    	  return new Pilr_EMA_App_Home(driver);
 	      }	 
+	    
+	    //Select the browse data link
+	    public Query_Project_Data browseData(){
+	    	driver.findElement(BrowseData).click();
+	    	return new Query_Project_Data(driver);
+	    }
 	    
 	    //Select the add participant link
 	    public Pilr_Create_Participant Create_Participant() {
@@ -58,4 +65,5 @@ public class Pilr_CoordinatePage {
 		  driver.findElement(ProjectSettings).click();
 		  return new Project_Import_Modal(driver);
 	  }
+	  //select the Browse Data bar / icon 
 }

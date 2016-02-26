@@ -8,6 +8,7 @@ public class Pilr_Project_Settings_Page {
 	By projectSettingsWelcome = By.cssSelector("i.icon-double-angle-right");
 	By projectSettingsInstrSuccess = By.cssSelector("div[class='alert alert-success']");
 	By instrumentImport = By.cssSelector("a[data-toggle='modal'][href='#importDefinitionModal']");
+	By projectDesignNav = By.cssSelector("a[id='navConfigurationDesign']");
 	
 	public Pilr_Project_Settings_Page(WebDriver driver){
 		this.driver = driver;
@@ -24,5 +25,11 @@ public class Pilr_Project_Settings_Page {
     public Project_Import_Modal selectInstrumentImport(){
     	driver.findElement(instrumentImport).click();
     	return new Project_Import_Modal(driver);
+    }
+    
+    //Select Project Design
+    public Pilr_Project_Design nav_Project_Design(){
+    	driver.findElement(projectDesignNav).click();
+    	return new Pilr_Project_Design(driver);
     }
 }

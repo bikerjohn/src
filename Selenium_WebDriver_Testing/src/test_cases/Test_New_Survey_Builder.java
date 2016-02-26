@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 
 import page_objects.Add_Survey_Modal;
 import page_objects.Builder_EMAConfig_Page;
+import page_objects.Card_Modal;
+import page_objects.Card_Type_Modal;
 import page_objects.PilrHomePage;
 import page_objects.Pilr_Builder_Page;
 import page_objects.Pilr_Config_Builder;
@@ -14,6 +16,8 @@ import page_objects.Pilr_CoordinatePage;
 import page_objects.Pilr_EMA_App_Home;
 import page_objects.Pilr_Survey_Builder;
 import page_objects.Pilr_Survey_ResponsePage;
+import page_objects.Section_Modal;
+import page_objects.Time_Wait;
 
 //this test case extends the AbstractTestCase which contains basic site
 //navigation.  It will not run correctly if you attempt to run it directly 
@@ -43,8 +47,13 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		Builder_EMAConfig_Page objEMAConfigBuilder;
 		Pilr_Builder_Page objPilrBuilderPage;
 		Add_Survey_Modal objAddSurvey;
+		Section_Modal objSectionModal;
+		Card_Type_Modal objCardTypeModal;
+		Card_Modal objCardModal;
+		Time_Wait objTimeWait;
 		String new_project_name = "test"+ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
 		String emaTextLink = "test_link";
+		String sec_refid = "123";
 //need to add the config builder and survey builder objects
 
 	@Test
@@ -130,5 +139,49 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		Assert.assertTrue(objSurveyBuilder.getsurveyBuilderWelcome()
 				.contains(objtestvars.getSurveyName()));
 	}
-	
+	@Test
+	public void test_Add_New_Section(){
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+		objSectionModal = new Section_Modal(driver);
+		
+		objSurveyBuilder.create_Section();
+		try {
+    		Thread.sleep(5000); 
+    	}
+    	catch(InterruptedException ex) {
+    		Thread.currentThread().interrupt();
+    	}
+		Assert.assertTrue(objSectionModal.getsectionModalWelcome().toLowerCase()
+				.contains("add a section"));
+		objSectionModal.createSection(objtestvars.getSectionName(), objtestvars.getSectionDescription());
+		this.sec_refid = objSectionModal.getRefid();
+		objSectionModal.saveSection();
+		Assert.assertTrue(objSurveyBuilder.getsurveyBuilderWelcome()
+				.contains(objtestvars.getSurveyName()));
+	}
+	@Test 
+	public void test_Select_Card_Type(){
+		objCardTypeModal = new Card_Type_Modal(driver);
+		objCardModal = new Card_Modal(driver);
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+		objTimeWait = new Time_Wait();
+		
+		objSurveyBuilder.create_Card(sec_refid);
+		objTimeWait.Duration(2000);
+		Assert.assertTrue(objCardTypeModal.getcardModalWelcome().toLowerCase()
+				.contains("add a card"));
+		objCardTypeModal.selectYesNoQ();
+		Assert.assertTrue(objCardModal.getcarModalWelcome().toLowerCase() 
+				.contains("create a card"));
+	}
+	@Test
+	public void test_Add_Card(){
+		objCardModal = new Card_Modal(driver);
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+		objTimeWait = new Time_Wait();
+		
+		objCardModal.createCard(objtestvars.getCardTitle(), objtestvars.getCardText());
+		Assert.assertTrue(objSurveyBuilder.getsurveyBuilderWelcome().toLowerCase()
+				.contains(objtestvars.getSurveyName()));
+	}
 }

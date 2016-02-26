@@ -1,0 +1,20 @@
+<suite name="pilr_Test_Browse_Data_Dataviewer" verbose="2" >
+	<test name="Test_View_Project_Data" >
+		<classes> 
+			<class name="test_cases.Test_Browse_Data" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_Project" />
+					<include name="test_Select_Instrument" />
+					<include name="test_Select_Survey_Response_Page" />
+					<include name="test_Fill_Form_and_Launch_DataViewer" />
+					<include name="test_Data_Viewer_Functionality" />
+					<include name="test_Download_CSV_File" />
+					<include name="test_close_Data_Viewer" />
+					<include name="test_Logout" />
+					<include name="tearDown" />
+				</methods>
+			</classes>
+	</test>
+</suite>

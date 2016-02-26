@@ -14,8 +14,11 @@ public class PilrHomePage {
 		private String project = "DualCohortStudy (OWNER)";
 		private String organization = "test_org";
 		By homePageWelcome = By.cssSelector("i.icon-double-angle-right");
-		By PilrProject = By.partialLinkText(project);
+		By PilrProject = By.cssSelector("a[title='"+project+"']");
 		By PilrOrg = By.linkText(organization);
+		By PilrTable = By.cssSelector("table[class^='table table-responsive']");
+		By PilrOrgExp = By.cssSelector("i[class='icon-chevron-right'] + *");
+		By PilrChooseProj = By.cssSelector("a[title='Choose a Project']");
 	     
 	   public PilrHomePage(WebDriver driver){
 	 
@@ -30,13 +33,13 @@ public class PilrHomePage {
 	      
 	      //Select a project to work on
 	      public Pilr_CoordinatePage selectProject(String prjct) {
-	    	  this.project = prjct + " (OWNER)";
-		      this.PilrProject = By.linkText(project);
+	    	  this.project = prjct;
+		      this.PilrProject = By.partialLinkText(project);
 		      System.out.println("[Page Object]Select Project");
-		      WebElement element = driver.findElement(By.partialLinkText(project));
-	    	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-	    	  
-	    	  driver.findElement(By.linkText(project)).click();
+		    //  WebElement element = driver.findElement(PilrProject);
+	    	//  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+	    	  driver.findElement(PilrChooseProj).click();
+	    	  driver.findElement(PilrProject).click();
 	    	  return new Pilr_CoordinatePage(driver);
 	      }
 	      //Select an organization to work on
@@ -47,6 +50,13 @@ public class PilrHomePage {
 	    	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", PilrOrg);
 	    	  driver.findElement(By.linkText(organization)).click();
 	    	  return new Pilr_Org_Page(driver);
+	      }
+	      //Expand an Org group in order to be able to select a project
+	      public void expandOrg(String Org){
+	    	  this.organization = Org;
+	    	  this.PilrOrgExp = By.cssSelector("i[class='icon-chevron-right']");
+	    	  driver.findElement(PilrTable).click();
+	    	  driver.findElements(PilrOrgExp).get(1).click(); 
 	      }
 	      
 }

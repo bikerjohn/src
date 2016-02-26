@@ -1,0 +1,16 @@
+<suite name="pilr_Verify_Coordinate_Page" verbose="3" >
+	<test name="Test_Verify_Coordinate_Page" >
+		<classes> 
+			<class name="test_cases.Test_Coordinate_Page" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_Project" />
+					<include name="test_Verify_NewParticipant_Page" />
+					<include name="test_Verify_ViewGroups_Page" />
+					<include name="test_View_Participant_Detail" />
+					<include name="tearDown" />
+				</methods>
+		</classes>
+	</test>
+</suite>
