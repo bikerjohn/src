@@ -55,4 +55,22 @@
 					</methods>
 			</classes>
 	</test>
+	<test name="Test_Bulk_Add_and_Edit_Participants" >
+		<classes> 
+			<class name="test_cases.Test_Manage_Add_Participants_New_Project" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_New_Project_Name" />
+					<include name="test_Bulk_Add_Participants" />
+					<include name="test_Import_File_From_Directory" />
+					<include name="test_Nav_Coordinate_Page" />
+					<include name="test_Bulk_Edit_New_Participants" />
+					<include name="test_Prepare_to_Edit_Groups" />
+					<include name="test_Select_Group_Status" />
+					<include name="test_Schedule_Active_Period" />
+					<include name="tearDown" />
+				</methods>
+		</classes>
+	</test>
 </suite>

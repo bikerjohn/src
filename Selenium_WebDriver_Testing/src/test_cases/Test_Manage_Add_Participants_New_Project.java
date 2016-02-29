@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import page_objects.Bulk_Add_Participants_Page;
 import page_objects.Bulk_Edit_Participants_Page;
+import page_objects.PilrHomePage;
 import page_objects.Pilr_CoordinatePage;
 import page_objects.Time_Wait;
 import page_objects.Update_Group_Modal;
@@ -20,6 +21,19 @@ public class Test_Manage_Add_Participants_New_Project extends AbstractTestCase {
 	Update_Schedule_Modal objScheduleModal;
 	TestVars objtestvars;
 	Time_Wait objTimeWait;
+	String new_project_name = "test"+ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
+	
+	@Test
+	public void test_Select_New_Project_Name(){
+		//Select the new project created in the Create Project From Scratch Test Case
+		objHomePage = new PilrHomePage(driver);
+		objCoordinatePage = new Pilr_CoordinatePage(driver);
+		
+		objHomePage.selectProject(new_project_name);
+		Assert.assertTrue(objCoordinatePage.getcoordinatePageWelcome().toLowerCase()
+				.contains("coordinate participants and data"));
+	}
+	
 	
 	@Test
 	//select the bulk add participants option in the Action group
@@ -62,10 +76,10 @@ public class Test_Manage_Add_Participants_New_Project extends AbstractTestCase {
 		
 		objBulkEditParticipants.select_Edit_All_Checkbox();
 		objBulkEditParticipants.select_Default_Assignment_Column(objtestvars.get_default_Assignments());
-		objTimeWait.Duration(500);
+		objTimeWait.Duration(1000);
 		objBulkEditParticipants.select_Edit_Button();
 		objBulkEditParticipants.select_Edit_Groups();
-		objTimeWait.Duration(1000);
+		objTimeWait.Duration(4000);
 		Assert.assertTrue(objGroupModal.get_Group_Modal_Welcome().toLowerCase()
 				.contains("bulk update groups"));
 	}
@@ -94,8 +108,9 @@ public class Test_Manage_Add_Participants_New_Project extends AbstractTestCase {
 		objTimeWait = new Time_Wait();
 		
 		objBulkEditParticipants.select_Edit_Button();
-		objBulkEditParticipants.select_Edit_Schedule();
 		objTimeWait.Duration(2000);
+		objBulkEditParticipants.select_Edit_Schedule();
+		objTimeWait.Duration(6000);
 		Assert.assertTrue(objScheduleModal.getScheduleModalWelcome().toLowerCase()
 				.contains("bulk update schedule"));
 		objScheduleModal.Schedule_Active_Period();
