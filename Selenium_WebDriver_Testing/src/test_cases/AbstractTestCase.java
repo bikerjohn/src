@@ -210,6 +210,17 @@ public class AbstractTestCase {
     	Assert.assertTrue(objProjectSettings.getprojectSettingsWelcome().toLowerCase()
     			.contains("add, edit, or remove the components used on this project."));   	
     }
+    @Test
+    //navigate to the Coordinate Projects Page
+    public void test_Nav_Coordinate_Page(){
+    	navbar = new Pilr_Navbar(driver);
+    	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	//click the dashboard icon to go the Coordinate Project page
+    	navbar.click_Project_Coordinate_Icon();
+    	Assert.assertTrue(objCoordinatePage.getcoordinatePageWelcome().toLowerCase()
+    			.contains("coordinate participants and data"));
+    	
+    }
     
     @Test
     public void test_Logout(){

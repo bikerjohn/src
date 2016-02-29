@@ -24,12 +24,15 @@ public final class TestVars {
 	 private String existing_org;
 	 private String dv_start_date;
 	 private String dv_end_date;
+	 private String import_file_name;
+	 private String participant_status;
+	 private String default_assignments;
 	
 	//set the default value of the test variables
 	public TestVars(){
 		usrname="bikerjohn";
 		passwrd="$Rtchierans9x1";
-		prjct="test12272";
+		prjct="test5592";
 		org="PiLRHealth Auto QA Test Org (OWNER)";
 		part_code="922";
 		ema_config="New EMA Config";
@@ -47,6 +50,9 @@ public final class TestVars {
 		existing_org = "customer_ema_examples";
 		dv_start_date = "10/16/2015";
 		dv_end_date = "02/10/2016";
+		import_file_name = "C:\\srv\\mei\\bulk_participants.csv";
+		participant_status = "Enrolled";
+		default_assignments = "Default Assignments";
 				
 		
 			
@@ -115,5 +121,14 @@ public final class TestVars {
 		}
 		public final String get_dv_End_Date(){
 			return dv_end_date;
+		}
+		public final String get_import_File_Name(){
+			return import_file_name;
+		}
+		public final String get_participant_Status(){
+			return participant_status;
+		}
+		public final String get_default_Assignments(){
+			return default_assignments;
 		}
 }

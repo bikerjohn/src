@@ -8,6 +8,7 @@ public class Pilr_Navbar {
 	By Navbar_useraccount = By.id("yourAccountDropdown");
 	By Account_option = By.id("logout");
 	By projectSettingsIcon = By.cssSelector("i[class='icon-cogs']");
+	By coordinateProjectIcon = By.cssSelector("i[class='icon-dashboard']");
 	
 	public Pilr_Navbar(WebDriver driver){
 		this.driver = driver;
@@ -22,5 +23,11 @@ public class Pilr_Navbar {
     public Pilr_Project_Settings_Page click_Project_Settings_Icon(){
     	driver.findElement(projectSettingsIcon).click();
     	return new Pilr_Project_Settings_Page(driver);
+    }
+    
+    //Select the Coordinate Project Coordinate Page icon to navigate to the Coordinate Page
+    public Pilr_CoordinatePage click_Project_Coordinate_Icon(){
+    	driver.findElement(coordinateProjectIcon).click();
+    	return new Pilr_CoordinatePage(driver);
     }
 }

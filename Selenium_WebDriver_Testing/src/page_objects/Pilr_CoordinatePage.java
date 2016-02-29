@@ -13,6 +13,8 @@ public class Pilr_CoordinatePage {
 	   By ParticipantDetail = By.id("show" + part_code);
 	   By ProjectSettings = By.cssSelector("i[class='icon-cogs']");
 	   By BrowseData = By.cssSelector("a[id='navDataBrowse']");
+	   By BulkAddParticipant = By.cssSelector("a[id='bulkAddParticipant']");
+	   By BulkEditParticipant = By.cssSelector("a[id='bulkEditParticipants']");
 	   
 	 public Pilr_CoordinatePage(WebDriver driver){
 	 
@@ -65,5 +67,16 @@ public class Pilr_CoordinatePage {
 		  driver.findElement(ProjectSettings).click();
 		  return new Project_Import_Modal(driver);
 	  }
-	  //select the Browse Data bar / icon 
+	  
+	  //select the Bulk Add Participants action to launch bulk add participants page
+	  public Bulk_Add_Participants_Page select_Bulk_Add_Participants(){
+		  driver.findElement(BulkAddParticipant).click();
+		  return new Bulk_Add_Participants_Page(driver);
+	  }
+	  
+	  //select the Bulk Edit Participants option in the Action Group
+	  public Bulk_Edit_Participants_Page select_Bulk_Edit_Participants(){
+		  driver.findElement(BulkEditParticipant).click();
+		  return new Bulk_Edit_Participants_Page(driver);
+	  }
 }
