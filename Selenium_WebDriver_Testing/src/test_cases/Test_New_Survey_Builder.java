@@ -9,6 +9,7 @@ import page_objects.Add_Survey_Modal;
 import page_objects.Builder_EMAConfig_Page;
 import page_objects.Card_Modal;
 import page_objects.Card_Type_Modal;
+import page_objects.Import_EMA_Defs_Modal;
 import page_objects.PilrHomePage;
 import page_objects.Pilr_Builder_Page;
 import page_objects.Pilr_Config_Builder;
@@ -54,6 +55,9 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		String new_project_name = "test"+ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
 		String emaTextLink = "test_link";
 		String sec_refid = "123";
+		Pilr_Builder_Page objBuilderPage;
+		Import_EMA_Defs_Modal objEMADefsModal;
+
 //need to add the config builder and survey builder objects
 
 	@Test
@@ -183,5 +187,16 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		objCardModal.createCard(objtestvars.getCardTitle(), objtestvars.getCardText());
 		Assert.assertTrue(objSurveyBuilder.getsurveyBuilderWelcome().toLowerCase()
 				.contains(objtestvars.getSurveyName()));
+	}
+	@Test
+	//import an ema config from a definition file
+	public void test_Import_EMA_Config(){
+		objBuilderPage = new Pilr_Builder_Page(driver);
+		objEMADefsModal = new Import_EMA_Defs_Modal(driver);
+		
+		objBuilderPage.Import_EMAConfig();
+		Assert.assertTrue(objEMADefsModal.get_EMA_Config_Defs_Welcome().toLowerCase()
+				.contains("import ema configurations"));
+		objEMADefsModal.import_EMA_Config_Def_File(objtestvars.get_EMA_Config_Defs());
 	}
 }

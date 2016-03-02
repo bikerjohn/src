@@ -1,0 +1,16 @@
+<suite name="pilr_Add_New_Participant" verbose="2" >
+	<test name="Test_Add_and_Activate__New_Participant" >
+		<classes> 
+			<class name="test_cases.Test_Coordinate_Page" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_Project" />
+					<include name="test_Add_Participant_Action" />
+					<include name="test_Create_New_Participant" />
+					<include name="test_Schedule_Participant_Active_Period" />
+					<include name="tearDown" />
+				</methods>
+		</classes>
+	</test>
+</suite>

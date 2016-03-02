@@ -3,7 +3,10 @@ package test_cases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page_objects.Pilr_ParticipantPage;
+import page_objects.Schedule_Participant_Modal;
+import page_objects.Time_Wait;
 import page_objects.Pilr_GroupPage;
+import page_objects.Pilr_CoordinatePage;
 import page_objects.Pilr_Create_Participant;
 
 //this CLASS extends the AbstractTestCase which contains basic site
@@ -29,6 +32,8 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     Pilr_Create_Participant objAddParticipant;
     Pilr_GroupPage objViewGroups;
     Pilr_ParticipantPage objParticipantPage;
+    Schedule_Participant_Modal objScheduleParticipantModal;
+    Time_Wait objTimeWait;
    
     @Test (groups={"page_test"})
     public void test_Verify_NewParticipant_Page() {
@@ -36,18 +41,49 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	//select the Add Participant option
     	objAddParticipant = new Pilr_Create_Participant(driver);
     	objCoordinatePage.Create_Participant();
-    	System.out.println("[Test Case]Add Participant");
-    	try {
-    		Thread.sleep(5000); 
-    	}
-    	catch(InterruptedException ex) {
-    		Thread.currentThread().interrupt();
-    	}
+    	objTimeWait = new Time_Wait();
     	
+    	System.out.println("[Test Case]Add Participant");
+    	objTimeWait.Duration(3000);   	
     	Assert.assertTrue(objAddParticipant.getnewparticipantPageWelcome()
     			.toLowerCase().contains("new participant"));
     	System.out.println("[Test Case]New Participant Page Verified");
     	driver.navigate().back();
+    }
+    @Test
+    //select the add participant option in the Action group
+    public void test_Add_Participant_Action(){
+    	objAddParticipant = new Pilr_Create_Participant(driver);
+    	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	objTimeWait = new Time_Wait();
+    	
+    	objCoordinatePage.Create_Participant();
+    	objTimeWait.Duration(1000);
+    	Assert.assertTrue(objAddParticipant.getnewparticipantPageWelcome().toLowerCase()
+    			.contains("new participant"));
+    }
+    @Test
+    //complete the fields in the add participant modal and hit save
+    public void test_Create_New_Participant(){
+    	objAddParticipant = new Pilr_Create_Participant(driver);
+    	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	objTimeWait = new Time_Wait();
+    	
+    	objAddParticipant.completeCreateParticipantForm(objtestvars.getPartCode(), objtestvars.getPartDesc());
+    }
+    @Test
+    //Schedule the new participants active period
+    public void test_Schedule_Participant_Active_Period(){
+    	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	objParticipantPage = new Pilr_ParticipantPage(driver);
+    	objScheduleParticipantModal = new Schedule_Participant_Modal(driver);
+    	objTimeWait = new Time_Wait();
+    	
+    	objParticipantPage.select_Participant_Schedule();
+    	objTimeWait.Duration(2000);
+    	objScheduleParticipantModal.get_Schedule_Participant_Welcome();
+    	objScheduleParticipantModal.set_Participant_Start_Date();
+    	objTimeWait.Duration(2000);
     }
     
     @Test (groups={"page_test"})
@@ -56,13 +92,9 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	//select the Add Participant option
     	objViewGroups = new Pilr_GroupPage(driver);
     	objCoordinatePage.selectViewGroups();
-    	try {
-    		Thread.sleep(5000); 
-    	}
-    	catch(InterruptedException ex) {
-    		Thread.currentThread().interrupt();
-    	}
+    	objTimeWait = new Time_Wait();
     	
+    	objTimeWait.Duration(3000); 
     	Assert.assertTrue(objViewGroups.getGroupPageWelcome()
     			.toLowerCase().contains("participant category memberships"));
     	System.out.println("[Test Case]View Groups Page Verified");
@@ -76,13 +108,9 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	//need to change this to right code
     	objParticipantPage = new Pilr_ParticipantPage(driver);
     	objCoordinatePage.selectParticipant(objtestvars.getPartCode());
-    	try {
-    		Thread.sleep(5000); 
-    	}
-    	catch(InterruptedException ex) {
-    		Thread.currentThread().interrupt();
-    	}
+    	objTimeWait = new Time_Wait();
     	
+    	objTimeWait.Duration(5000); 
     	Assert.assertTrue(objParticipantPage.getparticipantPageWelcome()
     			.toLowerCase().contains("participant "+objtestvars.getPartCode()));
     	System.out.println("[Test Case]Participant Page Verified");

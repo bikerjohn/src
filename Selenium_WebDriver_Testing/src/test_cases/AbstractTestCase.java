@@ -1,5 +1,6 @@
 package test_cases;
 
+import java.lang.management.ManagementFactory;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -42,6 +43,7 @@ public class AbstractTestCase {
 	Pilr_Project_Wizard objProjWizard;
 	Pilr_Project_Settings_Page objProjectSettings;
 	Pilr_Project_Design objProjectDesign;
+	String new_project_name = "test"+ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
 
 	public AbstractTestCase() {
 		super();
@@ -55,6 +57,7 @@ public class AbstractTestCase {
 	    //driver = new FirefoxDriver();
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    driver.manage().window().maximize();
+	    //driver.get("https://staging.pilrhealth.com/");
 	    driver.get("https://qa.pilrhealth.com/");
 	    objtestvars = new TestVars();
 	    //final Logger log = Logger.getLogger(AbstractTestCase.class);
@@ -84,7 +87,17 @@ public class AbstractTestCase {
     			"welcome back, bikerjohn!"));
     	System.out.println("[Test Case]Home Page Verified");
     }
-    
+	
+	@Test
+	public void test_Select_New_Project_Name(){
+		//Select the new project created in the Create Project From Scratch Test Case
+		objHomePage = new PilrHomePage(driver);
+		objCoordinatePage = new Pilr_CoordinatePage(driver);
+		
+		objHomePage.selectProject(new_project_name);
+		Assert.assertTrue(objCoordinatePage.getcoordinatePageWelcome().toLowerCase()
+				.contains("coordinate participants and data"));
+	}
     @Test 
     public void test_Select_Project() {
     	objHomePage = new PilrHomePage(driver);

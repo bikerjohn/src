@@ -8,6 +8,7 @@ public final class TestVars {
 	 private String prjct;
 	 private String org;
 	 private String part_code;
+	 private String part_desc;
 	 private String ema_config;
 	 private String new_ema_config;
 	 private String surv_name;
@@ -27,14 +28,19 @@ public final class TestVars {
 	 private String import_file_name;
 	 private String participant_status;
 	 private String default_assignments;
+	 private Integer proj_wizard_import_component_li;
+	 private String ema_config_defs;
 	
 	//set the default value of the test variables
 	public TestVars(){
 		usrname="bikerjohn";
 		passwrd="$Rtchierans9x1";
-		prjct="test9888";
-		org="PiLRHealth Auto QA Test Org (OWNER)";
+		prjct="test6008";
+		org="EMA Standard Surveys (OWNER)";
+		//org="PiLRHealth Auto QA Test Org (OWNER)";
+		//org="PiLR Demo (OWNER)";
 		part_code="922";
+		part_desc="bikerjohn";
 		ema_config="New EMA Config";
 		new_ema_config="New EMA Config";
 		surv_name="Test Survey";
@@ -53,9 +59,10 @@ public final class TestVars {
 		import_file_name = "C:\\srv\\mei\\bulk_participants.csv";
 		participant_status = "Enrolled";
 		default_assignments = "Default Assignments";
+		proj_wizard_import_component_li = 0;
+		ema_config_defs = "C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json";
 				
 		
-			
 	    }
 	
 	// Public methods
@@ -73,6 +80,9 @@ public final class TestVars {
 		}
 		public final String getPartCode(){
 			return part_code;
+		}
+		public final String getPartDesc(){
+			return part_desc;
 		}
 		public final String getEmaConfig(){
 			return ema_config;
@@ -130,5 +140,11 @@ public final class TestVars {
 		}
 		public final String get_default_Assignments(){
 			return default_assignments;
+		}
+		public final Integer get_Import_Component_li(){
+			return proj_wizard_import_component_li;
+		}
+		public final String get_EMA_Config_Defs(){
+			return ema_config_defs;
 		}
 }

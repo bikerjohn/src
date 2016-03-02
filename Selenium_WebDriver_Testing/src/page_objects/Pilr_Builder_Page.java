@@ -10,6 +10,8 @@ public class Pilr_Builder_Page {
 	By emaconfigBuilder = By.partialLinkText(emaconfig);
 	By pickEMAConfig = By.cssSelector("a[href*='" + project + "']");
 	By addConfig = By.cssSelector("a[href='/project/project_name/emaOtsConfig/createConfig']");
+	By importConfig = By.partialLinkText("import");
+	
 	
 	public Pilr_Builder_Page(WebDriver driver){
 		 
@@ -44,6 +46,11 @@ public class Pilr_Builder_Page {
     	By addConfig = By.cssSelector("a[href='/project/" + emaconfig + "/emaOtsConfig/createConfig']");
     	driver.findElement(addConfig).click();
     	return new Builder_EMAConfig_Page(driver);
+    }
+    //Import the ema config (needs to be split because of need to create import def modal)
+    public Import_EMA_Defs_Modal Import_EMAConfig(){
+    	driver.findElement(importConfig).click();
+    	return new Import_EMA_Defs_Modal(driver);
     }
  
 }

@@ -24,7 +24,7 @@ public class Update_Schedule_Modal {
 	}
 	//select the Active Period start date and save the information
 	public void Schedule_Active_Period(){
-		DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 	    Date dateobj = new Date();
 	    cur_Date = df.format(dateobj);
 		driver.findElement(inputDateStart).click();

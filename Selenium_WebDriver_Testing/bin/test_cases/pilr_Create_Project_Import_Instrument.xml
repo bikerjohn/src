@@ -1,0 +1,64 @@
+<suite name="pilr_Create_Project_Import_Instrument" verbose="2" >
+	<test name="Test_Create_Project" >
+		<classes> 
+			<class name="test_cases.Test_New_Project_Wizard" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_Organization_Page" />
+					<include name="test_Create_Project" />
+					<include name="test_Name_New_Project" />
+					<include name="test_Import_EMA_Instrument_From_Organization" />
+					<include name="test_Set_New_Project_Duration" />
+					<include name="test_Logout" />
+				</methods>
+				</classes>
+		</test>
+		
+		<test name="Test_Import_EMA_Config" >
+			<classes> 
+			<class name="test_cases.Test_New_Survey_Builder" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_New_Project_Name"/>
+					<include name="test_Select_Instrument" />
+					<include name="test_Select_EMA_App_Page" />
+					<include name="test_Select_EMA_Builder_Page" />
+					<include name="test_Import_EMA_Config" />
+					<include name="test_Logout" />
+				</methods>
+			</classes>
+		</test>
+		<test name="Test_Add_Instrument_to_Default_Template" >
+		<classes> 
+			<class name="test_cases.Test_Project_Design_Settings" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_New_Project_Name" />
+					<include name="test_Nav_Project_Settings" />
+					<include name="test_Nav_Project_Design" />
+					<include name="test_Select_Default_Template" />
+					<include name="test_Add_Instrument_to_Template" />
+					<include name="test_Save_Instrument_Selection" />	
+					<include name="test_Set_EMA_Config" />				
+					<include name="tearDown" />
+				</methods>
+		</classes>
+	</test>
+	<test name="Test_Add_and_Activate__New_Participant" >
+		<classes> 
+			<class name="test_cases.Test_Coordinate_Page" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_New_Project_Name" />
+					<include name="test_Add_Participant_Action" />
+					<include name="test_Create_New_Participant" />
+					<include name="test_Schedule_Participant_Active_Period" />
+					<include name="tearDown" />
+				</methods>
+		</classes>
+	</test>
+</suite>

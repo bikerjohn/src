@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import page_objects.Import_EMA_Defs_Modal;
+import page_objects.Pilr_Builder_Page;
 import page_objects.Pilr_CoordinatePage;
 import page_objects.Pilr_Project_Settings_Page;
 import page_objects.Pilr_Project_Wizard;
@@ -58,8 +60,8 @@ public class Test_New_Project_Wizard extends AbstractTestCase {
 	@Test
 	public void test_Set_New_Project_Duration(){
 		objProjectDuration = new Project_Wizard_Duration(driver);
-		Assert.assertTrue(objProjectDuration.getDurationWelcome().toLowerCase()
-    			.contains("a little more help to get started quicker"));
+		//Assert.assertTrue(objProjectDuration.getDurationWelcome().toLowerCase()
+    	//		.contains("a little more help to get started quicker"));
 		//select the Finish button to finish creating a project
 		objProjectDuration.selectFinish();
 	}
@@ -93,5 +95,17 @@ public class Test_New_Project_Wizard extends AbstractTestCase {
 		Assert.assertTrue(objProjectSettings.getprojectSuccessMsg()
 				.toLowerCase().contains("project components were added successfully"));
 	}
+	@Test
+	//select the Import Component from Organization
+	public void test_Import_EMA_Instrument_From_Organization(){
+		objProjectConfig = new Project_Wizard_Config_Options(driver);
+		objImportInstrumentModal = new Project_Import_Modal(driver);
+		
+		Assert.assertTrue(objProjectConfig.getConfigOptionsWelcome().toLowerCase()
+				.contains("setup the project design"));
+		objProjectConfig.select_Import_From_Organization();
+		objProjectConfig.import_Component_From_Organization(objtestvars.get_Import_Component_li());
+	}
+	
 }
  

@@ -31,7 +31,7 @@ public class Pilr_CoordinatePage {
 	    	  driver.findElement(ProjectInstrument).click();
 	    	  System.out.println("[Page Object]Select Instrument");
 	    	  return new Pilr_EMA_App_Home(driver);
-	      }	 
+	    }	 
 	    
 	    //Select the browse data link
 	    public Query_Project_Data browseData(){
@@ -44,9 +44,9 @@ public class Pilr_CoordinatePage {
 	    	  driver.findElement(AddParticipant).click();
 	    	  System.out.println("[Page Object]Add Participant");
 	    	  return new Pilr_Create_Participant(driver);
-	      }	
+	    }	
 	    
-	  //Select the view groups link
+	    //Select the view groups link
 	    public Pilr_GroupPage selectViewGroups() {
 	    	  driver.findElement(ViewGroups).click();
 	    	  System.out.println("[Page Object]View Groups");
