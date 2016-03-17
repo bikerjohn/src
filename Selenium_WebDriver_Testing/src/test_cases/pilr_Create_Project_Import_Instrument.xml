@@ -57,6 +57,7 @@
 					<include name="test_Add_Participant_Action" />
 					<include name="test_Create_New_Participant" />
 					<include name="test_Schedule_Participant_Active_Period" />
+					<include name="test_Add_Participant_Device" />
 					<include name="tearDown" />
 				</methods>
 		</classes>

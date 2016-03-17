@@ -9,6 +9,10 @@ public class Pilr_Navbar {
 	By Account_option = By.id("logout");
 	By projectSettingsIcon = By.cssSelector("i[class='icon-cogs']");
 	By coordinateProjectIcon = By.cssSelector("i[class='icon-dashboard']");
+	By selectOrganizationLink = By.cssSelector("a[id='chooseOrganization']");
+	private String orgName = "a[title='";
+	By selectOrganization = By.cssSelector(orgName);
+	
 	
 	public Pilr_Navbar(WebDriver driver){
 		this.driver = driver;
@@ -29,5 +33,13 @@ public class Pilr_Navbar {
     public Pilr_CoordinatePage click_Project_Coordinate_Icon(){
     	driver.findElement(coordinateProjectIcon).click();
     	return new Pilr_CoordinatePage(driver);
+    }
+    //Select the Organization to Navigate to from the Navbar link
+    public Pilr_Org_Page Nav_to_Org_Page(String organizationName){
+    	this.orgName = orgName + organizationName + "']";
+    	By selectOrganization = By.cssSelector(orgName);
+    	driver.findElement(selectOrganizationLink).click();
+    	driver.findElement(selectOrganization).click();
+    	return new Pilr_Org_Page(driver);
     }
 }

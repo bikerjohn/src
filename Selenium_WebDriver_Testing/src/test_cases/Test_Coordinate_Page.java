@@ -6,6 +6,7 @@ import page_objects.Pilr_ParticipantPage;
 import page_objects.Schedule_Participant_Modal;
 import page_objects.Time_Wait;
 import page_objects.Pilr_GroupPage;
+import page_objects.Add_Device_Modal;
 import page_objects.Pilr_CoordinatePage;
 import page_objects.Pilr_Create_Participant;
 
@@ -33,6 +34,7 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     Pilr_GroupPage objViewGroups;
     Pilr_ParticipantPage objParticipantPage;
     Schedule_Participant_Modal objScheduleParticipantModal;
+    Add_Device_Modal objAddParticipantDevice;
     Time_Wait objTimeWait;
    
     @Test (groups={"page_test"})
@@ -84,6 +86,21 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	objScheduleParticipantModal.get_Schedule_Participant_Welcome();
     	objScheduleParticipantModal.set_Participant_Start_Date();
     	objTimeWait.Duration(2000);
+    }
+    @Test
+    //Add a device to the new participants setup
+    public void test_Add_Participant_Device(){
+    	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	objParticipantPage = new Pilr_ParticipantPage(driver);
+    	objAddParticipantDevice = new Add_Device_Modal(driver);
+    	objTimeWait=new Time_Wait();
+    	
+    	objParticipantPage.Add_Participant_Device();
+    	objTimeWait.Duration(1000);
+    	Assert.assertTrue(objAddParticipantDevice.Get_addDevice_Welcome().toLowerCase()
+    			.contains("setup device activation information"));
+    	objAddParticipantDevice.createLoginID(objtestvars.getUserName());
+    	
     }
     
     @Test (groups={"page_test"})

@@ -35,8 +35,9 @@ public final class TestVars {
 	public TestVars(){
 		usrname="bikerjohn";
 		passwrd="$Rtchierans9x1";
-		prjct="test6008";
-		org="EMA Standard Surveys (OWNER)";
+		prjct="Delete EMA Config Test";
+		//prjct="test6008";
+		org="EMA Standard Surveys";
 		//org="PiLRHealth Auto QA Test Org (OWNER)";
 		//org="PiLR Demo (OWNER)";
 		part_code="922";

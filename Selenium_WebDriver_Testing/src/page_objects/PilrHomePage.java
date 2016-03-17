@@ -15,7 +15,7 @@ public class PilrHomePage {
 		private String organization = "test_org";
 		By homePageWelcome = By.cssSelector("i.icon-double-angle-right");
 		By PilrProject = By.cssSelector("a[title='"+project+"']");
-		By PilrOrg = By.linkText(organization);
+		By PilrOrg = By.partialLinkText(organization);
 		By PilrTable = By.cssSelector("table[class^='table table-responsive']");
 		By PilrOrgExp = By.cssSelector("i[class='icon-chevron-right'] + *");
 		By PilrChooseProj = By.cssSelector("a[title='Choose a Project']");
@@ -45,10 +45,10 @@ public class PilrHomePage {
 	      //Select an organization to work on
 	      public Pilr_Org_Page selectOrganization(String org){
 	    	  this.organization = org;
-	    	  this.PilrOrg = By.linkText(organization);
-	    	  WebElement PilrOrg = driver.findElement(By.linkText(organization));
+	    	  this.PilrOrg = By.partialLinkText(organization);
+	    	  WebElement PilrOrg = driver.findElement(By.partialLinkText(organization));
 	    	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", PilrOrg);
-	    	  driver.findElement(By.linkText(organization)).click();
+	    	  driver.findElement(By.partialLinkText(organization)).click();
 	    	  return new Pilr_Org_Page(driver);
 	      }
 	      //Expand an Org group in order to be able to select a project

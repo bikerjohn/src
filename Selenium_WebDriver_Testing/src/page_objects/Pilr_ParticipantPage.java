@@ -8,6 +8,9 @@ public class Pilr_ParticipantPage {
 	 
 	   By participantPageWelcome = By.cssSelector("h1");
 	   By scheduleParticipant = By.cssSelector("a[id='startDateParticipantActivePeriod']");
+	   By addDeviceTab = By.cssSelector("a[title='Devices']");
+	   By addDeviceLink = By.cssSelector("a[id='deviceActivation']");
+	   
 	   
 
 	   public Pilr_ParticipantPage(WebDriver driver){
@@ -23,5 +26,11 @@ public class Pilr_ParticipantPage {
 	    public Schedule_Participant_Modal select_Participant_Schedule(){
 	    	driver.findElement(scheduleParticipant).click();
 	    	return new Schedule_Participant_Modal(driver);
+	    }
+	    //add a device for a participant
+	    public Add_Device_Modal Add_Participant_Device(){
+	    	driver.findElement(addDeviceTab).click();
+	    	driver.findElement(addDeviceLink).click();
+	    	return new Add_Device_Modal(driver);
 	    }
 }

@@ -10,6 +10,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import page_objects.Delete_Project_Modal;
 import page_objects.PilrHomePage;
 import page_objects.PilrLogin;
 import page_objects.Pilr_Builder_Page;
@@ -43,7 +45,9 @@ public class AbstractTestCase {
 	Pilr_Project_Wizard objProjWizard;
 	Pilr_Project_Settings_Page objProjectSettings;
 	Pilr_Project_Design objProjectDesign;
+	Delete_Project_Modal objDeleteProjectModal;
 	String new_project_name = "test"+ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
+	String pilr_org;
 
 	public AbstractTestCase() {
 		super();
@@ -234,7 +238,22 @@ public class AbstractTestCase {
     			.contains("coordinate participants and data"));
     	
     }
-    
+    @Test
+    //delete new project
+    public void test_Delete_Newly_Added_Project(){
+    	objOrgPage = new Pilr_Org_Page(driver);
+    	navbar = new Pilr_Navbar(driver);
+    	objDeleteProjectModal = new Delete_Project_Modal(driver);
+ 
+    	pilr_org = (objtestvars.getOrg());
+    	navbar.Nav_to_Org_Page(pilr_org);
+    	Assert.assertTrue(objOrgPage.getOrgPageWelcome()
+    			.contains(objtestvars.getOrg()));
+    	objOrgPage.delete_Project(new_project_name);
+    	Assert.assertTrue(objDeleteProjectModal.get_Delete_Project_Welcome().toLowerCase()
+    			.contains("are you sure you want to delete this project?"));
+    	objDeleteProjectModal.click_Confirm_Delete();
+    }
     @Test
     public void test_Logout(){
     	navbar = new Pilr_Navbar(driver);
