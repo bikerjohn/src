@@ -51,4 +51,9 @@ Temporary Items
 .metadata/
 .recommenders/
 test-output/
-Selenium_Webdriver_Testing\test-output/
+Selenium_WebDriver_Testing\test-output/
+Selenium_WebDriver_Testing\bin/
+Selenium_WebDriver_Testing\
+Selenium_WebDriver_Testing\-Copy.classpath
+Selenium_WebDriver_Testing\-Copy.project
+Selenium_WebDriver_Testing\.settings - Copy
