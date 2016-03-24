@@ -52,18 +52,50 @@ public class AbstractTestCase {
 	public AbstractTestCase() {
 		super();
 	}
-
+	
+	
 	@BeforeTest
 	public void setup() {
-	
-		System.setProperty("webdriver.chrome.driver", "C:/Users/eagle/Program Files/chromedriver_win32/chromedriver.exe");
+		System.out.println("Working Directory = " + System.getProperty("user.dir"));
+		
+		String matt = "/Users/matt/git/src/Selenium_WebDriver_Testing";
+		String john = "C:/serv/mei/MEI_UA_Testing/";
+		
+		//Check if it's Matt's system via string comparison
+		if((System.getProperty("user.dir")).equals(matt)){
+			
+			//Matt
+			System.setProperty("webdriver.chrome.driver", "/Users/matt/Desktop/MEI/chromedriver");
+			
+			//Set path related variables
+			objtestvars = new TestVars();
+			//objtestvars.set_import_File_Name("/Users/matt/Desktop/MEI/bulk_participants.csv");
+			objtestvars.set_EMA_Config_Defs("/Users/matt/Desktop/MEI/ema-configs-standard-surveys-wtriggers.json");
+			
+			//System.out.println(objtestvars.get_import_File_Name());
+			System.out.println(objtestvars.get_EMA_Config_Defs());
+			System.out.println("Matt's System");
+			
+		}
+		else if((System.getProperty("user.dir")).equals(john)){
+			
+			//John
+			System.out.println(System.setProperty("webdriver.chrome.driver", "C:/Users/eagle/Program Files/chromedriver_win32/chromedriver.exe"));
+			
+			//Set path related variables
+			objtestvars = new TestVars();
+			//objtestvars.set_import_File_Name("C:\\srv\\mei\\bulk_participants.csv");
+			objtestvars.set_EMA_Config_Defs("C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json");
+			System.out.println("John's System");
+			
+		}
 		driver = new ChromeDriver();
 	    //driver = new FirefoxDriver();
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    driver.manage().window().maximize();
 	    //driver.get("https://staging.pilrhealth.com/");
 	    driver.get("https://qa.pilrhealth.com/");
-	    objtestvars = new TestVars();
+	    //objtestvars = new TestVars();
 	    //final Logger log = Logger.getLogger(AbstractTestCase.class);
 	
 	}

@@ -25,11 +25,11 @@ public final class TestVars {
 	 private String existing_org;
 	 private String dv_start_date;
 	 private String dv_end_date;
-	 private String import_file_name;
+	 public String import_file_name;
 	 private String participant_status;
 	 private String default_assignments;
 	 private Integer proj_wizard_import_component_li;
-	 private String ema_config_defs;
+	 public String ema_config_defs;
 	
 	//set the default value of the test variables
 	public TestVars(){
@@ -133,6 +133,9 @@ public final class TestVars {
 		public final String get_dv_End_Date(){
 			return dv_end_date;
 		}
+		public final void set_import_File_Name(String newimportpath){
+			this.import_file_name=newimportpath;
+		}
 		public final String get_import_File_Name(){
 			return import_file_name;
 		}
@@ -144,6 +147,9 @@ public final class TestVars {
 		}
 		public final Integer get_Import_Component_li(){
 			return proj_wizard_import_component_li;
+		}
+		public final void set_EMA_Config_Defs(String newconfigdefs){
+			this.ema_config_defs=newconfigdefs;
 		}
 		public final String get_EMA_Config_Defs(){
 			return ema_config_defs;
